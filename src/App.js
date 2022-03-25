@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { db } from './firebase.config';
 import { collection, doc, getDocs } from "firebase/firestore";
+import SimpleDateTime  from 'react-simple-timestamp-to-date';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       {posts.map((post => {
         return (
           <div key={post.id}><h1>{post.title}</h1>
+          <span>Posted: </span><SimpleDateTime dateFormat="DMY" dateSeparator="/"  timeSeparator=":">{post.timestamp}</SimpleDateTime>
           <h3>{post.content}</h3></div>
         )
       }))}
