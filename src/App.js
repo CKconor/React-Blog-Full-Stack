@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { db } from './firebase.config';
 import { collection, getDocs } from "firebase/firestore";
 import SimpleDateTime from 'react-simple-timestamp-to-date';
+import Container from './components/Container';
 import './App.css';
 
 function App() {
@@ -20,12 +21,14 @@ function App() {
     <div className="App">
       {posts.map((post => {
         return (
+          <Container>
           <div key={post.id}>
             <h1 className="font-bold">Welcome to my Blog</h1>
             <h2 className='font-bold'>{post.title}</h2>
             <span>Posted: </span><SimpleDateTime dateFormat="DMY" dateSeparator="/" timeSeparator=":">{post.timestamp}</SimpleDateTime>
             <h3>{post.content}</h3>
           </div>
+          </Container>
         )
       }))}
     </div>
