@@ -1,0 +1,13 @@
+.active {
+    font-weight: bold;
+}
+li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+a {
+    cursor: pointer
+}
+.footer {
+    border-top: 1px solid #707070;
+}
