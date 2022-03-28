@@ -59,23 +59,23 @@ function Skills() {
           <ul>
             <li className="flex items-center">
             <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              React
+              Adobe XD
             </li>
             <li className="flex items-center">
             <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              React
+              Figma
             </li>
             <li className="flex items-center">
             <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              React
+              Minimalism
             </li>
             <li className="flex items-center">
             <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              React
+              Bootstrap
             </li>
             <li className="flex items-center">
             <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              React
+              Tailwind CSS
             </li>
           </ul>
         </div>
@@ -83,19 +83,19 @@ function Skills() {
           <ul>
             <li className="flex items-center">
             <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              React
+              Fair Prices
             </li>
             <li className="flex items-center">
             <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              React
+              Clear Communication
             </li>
             <li className="flex items-center">
             <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              React
+              Reasonable Deadlines
             </li>
             <li className="flex items-center">
             <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              React
+              Dedicated Mindset
             </li>
           </ul>
         </div>
