@@ -1,8 +1,10 @@
 import React from "react";
+import Portrait from '../assets/portrait.png'
 
 function About() {
   return (
-    <div className="flex flex-col mt-10 max-w-2xl">
+      <div className="flex flex-row">
+    <div className="flex flex-col mt-10 basis-1/2">
       <h1 className="text-5xl font-bold mb-10 mt-0">About Me</h1>
       <h2 className="font-bold text-4xl mb-2">Job Title</h2>
       <p>Software Engineer & Frontend Developer</p>
@@ -19,6 +21,10 @@ function About() {
         efficient one.
       </p>
       <h2 className="font-bold text-4xl mb-2 mt-6">Work History</h2>
+    </div>
+    <div className="flex flex-col mt-10 basis-1/2 items-end">
+        <img src={Portrait} alt="Portrait Image" />
+    </div>
     </div>
   );
 }
