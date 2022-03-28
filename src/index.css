@@ -4,7 +4,8 @@
 
 @layer base {
   html {
-    font-family: 'IBM Plex Sans';
+    font-family: 'Inter';
+    line-height: 1.8rem;
   }
   h1 {
     @apply md:text-5xl text-3xl mb-8 mt-6;
@@ -15,7 +16,7 @@
 }
 body {
   margin: 0;
-  @apply dark:bg-zinc-900 dark:text-neutral-100 bg-neutral-100 text-zinc-900;
+  @apply dark:bg-darkmode dark:text-lightmode bg-lightmode text-darkmode;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
