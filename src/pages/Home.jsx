@@ -15,7 +15,7 @@ function App() {
             </h1>
             <h3 className="text-3xl mt-1 font-normal text-darkmode dark:text-lightmode">Conor Kemp</h3>
             <p className="max-w-prose mt-6 text-lightsubtext dark:text-darksubtext">
-              Freelance Web Developer and Designer based in the UK, specialising
+              Web Developer and Designer based in the UK, specialising
               in e-commerce and business branding alongside modern frameworks
               such as React and CMS systems such as Wordpress
             </p>
