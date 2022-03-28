@@ -1,4 +1,5 @@
 import React from "react";
+import { List, NavLink } from "react-router-dom";
 import Container from "./Container";
 
 
@@ -6,18 +7,18 @@ function Header() {
   return (
       <div className="mb-5 mt-5">
         <nav className="flex flex-row">
-          <a className="mr-10" href="/">
+          <NavLink to={"/"} className="mr-10">
             Home
-          </a>
-          <a className="mr-10" href="/">
+          </NavLink>
+          <NavLink to={"/about"} className="mr-10">
             About
-          </a>
-          <a className="mr-10" href="/">
+          </NavLink>
+          <NavLink to={"/projects"} className="mr-10">
             Projects
-          </a>
-          <a className="mr-10" href="/">
+          </NavLink>
+          <NavLink to={"/blog"} className="mr-10">
             Blog
-          </a>
+          </NavLink>
         </nav>
       </div>
   );
