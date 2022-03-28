@@ -6,9 +6,9 @@ function Skills() {
     <div className="skills-container">
       <div className="flex flex-row mb-2 filter-row">
         <a className="mr-10 active hover:text-darkmode">All</a>
-        <a className="mr-10 text-lightsubtext hover:text-darkmode hover:font-bold">Developing</a>
-        <a className="mr-10 text-lightsubtext hover:text-darkmode hover:font-bold">Design</a>
-        <a className="text-lightsubtext hover:text-darkmode hover:font-bold">Business</a>
+        <a className="mr-10 text-lightsubtext hover:text-darkmode hover:font-bold transition ease-in-out delay-150">Developing</a>
+        <a className="mr-10 text-lightsubtext hover:text-darkmode hover:font-bold transition ease-in-out delay-150">Design</a>
+        <a className="text-lightsubtext hover:text-darkmode hover:font-bold transition ease-in-out delay-150">Business</a>
       </div>
       <div className="flex flex-row bg-skillcontainerlightbg dark:bg-skillcontainerdarkbg p-10 rounded text-lightsubtext dark:text-darksubtext">
         <div className="flex-col basis-1/3">
