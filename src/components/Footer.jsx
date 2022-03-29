@@ -20,10 +20,10 @@ function Footer() {
           </NavLink>
             </div>
             <div className="flex-row flex mt-5">
-                <a className="mr-8" href= "/">YouTube</a>
-                <a className="mr-8" href= "/">Github</a>
-                <a className="mr-8" href= "/">Dribble</a>
-                <a className="mr-8" href= "/">Linkedin</a>
+                <a className="mr-10 text-lightsubtext hover:text-darkmode hover:font-bold transition-all" href= "/">YouTube</a>
+                <a className="mr-10 text-lightsubtext hover:text-darkmode hover:font-bold transition-all" href= "/">Github</a>
+                <a className="mr-10 text-lightsubtext hover:text-darkmode hover:font-bold transition-all" href= "/">Dribble</a>
+                <a className="mr-10 text-lightsubtext hover:text-darkmode hover:font-bold transition-all" href= "/">Linkedin</a>
             </div>
         </div>
         <div className="flex flex-col basis 1/4 items-end mt-7">
