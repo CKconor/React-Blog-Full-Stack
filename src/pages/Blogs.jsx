@@ -37,7 +37,7 @@ function Blogs() {
           <img className="mb-4 max-w-[75%] rounded h-[300px] object-cover" src={blog.featureimage.url} alt={blog.featureimage.title} />
           }
           <h3 className="mb-2 text-xl max-w-3">{blog.blogTitle}</h3>
-          <p className="text-lightsubtext max-w-[85%]">{blog.blogExcerpt}</p>
+          <p className="text-lightsubtext max-w-[85%] dark:text-darksubtext">{blog.blogExcerpt}</p>
           </div>
         )
       })}
