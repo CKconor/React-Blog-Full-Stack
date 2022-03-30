@@ -2,6 +2,7 @@ import React from 'react'
 import {useQuery, gql} from '@apollo/client'
 import ReactMarkdown from 'react-markdown'
 
+
 const GET_BLOGS = gql`
   query Blogs {
     blogPostCollection{
@@ -14,6 +15,7 @@ const GET_BLOGS = gql`
           url
         }
         blogContent
+        blogExcerpt
       }
     }
   }
@@ -25,18 +27,21 @@ function Blogs() {
   if (error) return `Error! ${error.message}`;
   
   return (
-    <div className="flex flex-col mt-10"><h1 className="text-5xl font-bold mb-0 mt-0">Blog</h1>
+    <div className="flex flex-col mt-10 max-w-2xl">
+      <h1 className="text-5xl font-bold mb-3 mt-0">Blog</h1>
+      <div className="flex flex-col">
       {data.blogPostCollection.items.map (blog => {
         return (
-          <div className="" key={blog.sys.id}>
-          <h1>{blog.blogTitle}</h1>
+          <div className="flex flex-col mt-7" key={blog.sys.id}>
           {blog.featureimage && 
-          <img src={blog.featureimage.url} alt={blog.featureimage.title} />
+          <img className="mb-4 max-w-[75%] rounded h-[300px] object-cover" src={blog.featureimage.url} alt={blog.featureimage.title} />
           }
-          <div><ReactMarkdown>{blog.blogContent}</ReactMarkdown></div>
+          <h3 className="mb-2 text-xl max-w-3">{blog.blogTitle}</h3>
+          <p className="text-lightsubtext max-w-[85%]">{blog.blogExcerpt}</p>
           </div>
         )
       })}
+    </div>
     </div>
   )
 }
