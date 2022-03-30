@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Blogs from "./pages/Blogs";
-import "./App.css";
+import "./index.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {

@@ -25,7 +25,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-li {
-  list-style: disc;
-  list-style-position: inside;
-}
+@media (prefers-color-scheme: dark) {
+  .active {
+      font-weight: bold;
+      color: #f5f5f5;
+  }
+  }
+  @media (prefers-color-scheme: light) {
+      .active {
+          font-weight: bold;
+          color: #111113;
+      }
+  }
+  li {
+      margin-top: 5px;
+      margin-bottom: 5px;
+  }
+  a {
+      cursor: pointer
+  }
+  .footer {
+      border-top: 1px solid #707070;
+  }
+  h1,h2,h3{
+      font-weight: bold;
+  }
+  li {
+      list-style: disc;
+      list-style-position: inside;
+    }
+    
