@@ -24,3 +24,5 @@ s.getRecentlyPlayedGames({
 app.listen(port, () => {
   console.log(`Server running at localhost:${port}/`);
 });
+
+module.exports = app;
