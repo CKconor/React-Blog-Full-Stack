@@ -7,7 +7,7 @@ function About() {
 
   useEffect(() => {
     const recentGames = async () => {
-      const response = await axios("http://localhost:4000/recentlyplayed")
+      const response = await axios("/recentlyplayed")
       setGames(response.data.response.games);
     };
     recentGames();
