@@ -1,9 +1,10 @@
-const express = require("express")
-const app = express();
-const port = 4000;
+const app = require('express')();
+const { v4 } = require('uuid');
 var cors = require('cors');
 var steam = require('steam-web');
-require('dotenv').config()
+require('dotenv').config();
+const port = 4000;
+
 
 app.use(cors());
 
@@ -20,7 +21,7 @@ s.getRecentlyPlayedGames({
         
     }
   });
-
-app.listen(port, () => {
-  console.log(`Server running at localhost:${port}/`);
-});
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+  })
+module.exports = app;
