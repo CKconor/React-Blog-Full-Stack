@@ -1,13 +1,14 @@
 import { createClient } from "contentful";
 
 const useContentful = () => {
-  const client = createClient({
+  
+  const blogClient = createClient({
     space: "qklgdv24qn7u",
     accessToken: "Ea1WLJCsjSapvSBHOgyBv-d5zebVbKUo8vCLBfcUs6c"
   });
   const getPosts = async () => {
     try {
-      const posts = await client.getEntries({
+      const posts = await blogClient.getEntries({
         content_type: "blogPost",
         select: "fields",
       });
