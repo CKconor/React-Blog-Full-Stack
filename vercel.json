@@ -1,4 +1,7 @@
 {
+  {
+    "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
+  }
     "version": 2,
     "builds": [
       {
@@ -6,12 +9,5 @@
         "use": "@now/node"
       }
     ],
-    "routes": [
-      {
-        // Specify which paths will route to a destination using a regex
-        "src": "/(.*)",
-        // Specify the paths' destination
-        "dest": "/api/index.js"
-      }
-    ]
+      "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
   }
