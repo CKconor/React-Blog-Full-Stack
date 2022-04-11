@@ -4,7 +4,7 @@ function Container({children}) {
   return (
     <div
       id="skip"
-      className="flex flex-col justify-center max-w-5xl mx-auto pb-16"
+      className="flex flex-col justify-center max-w-4xl mx-auto pb-16 px-6"
     >
       {children}
     </div>

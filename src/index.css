@@ -57,4 +57,7 @@ code {
     .markdown p {
       margin-bottom: 20px
     }
+    .markdown img {
+      margin-bottom: 20px;
+    }
     

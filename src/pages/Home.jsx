@@ -10,20 +10,20 @@ function App() {
     <div className="App dark:bg-darkmode bg-lightmode">
         <div className="flex flex-row mt-10">
           <div className="flex flex-col basis-3/4 items-start">
-            <h1 className="text-5xl font-bold mb-0 mt-0">
+            <h1 className="text-2xl md:text-5xl font-bold mb-0 mt-0">
               Web Developer, UI Designer
             </h1>
-            <h3 className="text-3xl mt-1 font-normal text-darkmode dark:text-lightmode">Conor Kemp</h3>
-            <p className="max-w-prose mt-6 text-lightsubtext dark:text-darksubtext">
+            <h3 className="text-1xl md:text-3xl mt-1 font-normal text-darkmode dark:text-lightmode">Conor Kemp</h3>
+            <p className="max-w-xl mt-6 text-1xl text-lightsubtext dark:text-darksubtext">
               Web Developer and Designer based in the UK, specialising
               in e-commerce and business branding alongside modern frameworks
               such as React and CMS systems such as Wordpress
             </p>
-            <div className="mt-5">
+            <div className="mt-5 mb-10">
             <Contact/>
             </div>
           </div>
-          <div className="flex flex-col basis-1/4  items-end">
+          <div className="flex flex-col basis-1/4  items-end lg:visible invisible">
             <img src={Portrait} alt="" />
           </div>
         </div>
