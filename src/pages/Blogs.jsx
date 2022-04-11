@@ -28,8 +28,8 @@ function Blogs() {
   if (error) return `Error! ${error.message}`;
   
   return (
-    <div className="flex flex-col mt-10 max-w-2xl">
-      <h1 className="text-5xl font-bold mb-3 mt-0">Blog</h1>
+    <div className="flex flex-col mt-5 md:mt-10 max-w-2xl">
+      <h1 className="text-3xl sm:text-5xl font-bold mb-10 mt-0">Blog</h1>
       <div className="flex flex-col">
       {data.blogPostCollection.items.map (blog => {
         return (

@@ -8,7 +8,7 @@ export default function ProjectDetails() {
   const location = useLocation();
   const { projectData } = location.state;
   return (
-    <div className="flex flex-col mt-10 justify-center">
+    <div className="flex flex-col mt-5 md:mt-10 justify-center">
       <img
         className="mb-4 rounded h-[300px] object-cover max-w-2xl"
         src={projectData.projectImage.url}
