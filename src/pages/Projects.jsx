@@ -41,7 +41,7 @@ function Projects() {
               <div className="flex flex-col mt-7 cursor-pointer">
                 {project.projectImage && (
                   <img
-                    className="mb-4 max-w-[85%] rounded h-[350px] object-cover"
+                    className="mb-4  rounded h-[350px] object-cover"
                     src={project.projectImage.url}
                     alt={project.projectImage.title}
                   />
