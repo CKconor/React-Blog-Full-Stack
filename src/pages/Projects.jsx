@@ -28,20 +28,21 @@ function Projects() {
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   return (
-    <div className="flex flex-col mt-5 md:mt-10 max-w-2xl">
+    <div className="flex flex-col mt-5 md:mt-10">
       <h1 className="text-3xl sm:text-5xl font-bold mb-10 mt-0">Projects</h1>
-      <div className="flex flex-col">
+      <div className="flex flex-wrap justify-between">
         {data.projectsCollection.items.map((project) => {
           return (
             <Link
               key={project.sys.id}
               to={project.projectSlug}
               state={{ projectData: project }}
+              className="flex mr-3 flex-col max-w-[100%] md:max-w-[48%] mt-7 cursor-pointer"
             >
-              <div className="flex flex-col mt-7 cursor-pointer">
+              <div>
                 {project.projectImage && (
                   <img
-                    className="mb-4  rounded h-[350px] object-cover"
+                    className="mb-4 rounded h-[300px] object-cover"
                     src={project.projectImage.url}
                     alt={project.projectImage.title}
                   />

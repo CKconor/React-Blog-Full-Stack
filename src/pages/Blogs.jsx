@@ -28,12 +28,12 @@ function Blogs() {
   if (error) return `Error! ${error.message}`;
   
   return (
-    <div className="flex flex-col mt-5 md:mt-10 max-w-2xl">
+    <div className="flex flex-col mt-5 md:mt-10">
       <h1 className="text-3xl sm:text-5xl font-bold mb-10 mt-0">Blog</h1>
-      <div className="flex flex-col">
+      <div className="flex flex-wrap flex-row">
       {data.blogPostCollection.items.map (blog => {
         return (
-          <div className="flex flex-col mt-7" key={blog.sys.id}>
+          <div className="flex flex-col mt-7 mr-3 max-w-[45%]" key={blog.sys.id}>
           {blog.featureimage && 
           <img className="mb-4 max-w-2xl rounded h-[300px] object-cover" src={blog.featureimage.url} alt={blog.featureimage.title} />
           }
