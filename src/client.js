@@ -2,22 +2,22 @@ import { createClient } from "contentful";
 
 const useContentful = () => {
   
-  const blogClient = createClient({
+  const contentfulClient = createClient({
     space: "qklgdv24qn7u",
     accessToken: "Ea1WLJCsjSapvSBHOgyBv-d5zebVbKUo8vCLBfcUs6c"
   });
-  const getPosts = async () => {
+  const getData = async () => {
     try {
-      const posts = await blogClient.getEntries({
-        content_type: "blogPost",
+      const data = await contentfulClient.getEntries({
+        content_type: "contentfulContent",
         select: "fields",
       });
-      return posts;
+      return data;
     } catch (error) {
         console.log(`Error: ${error}`)
     }
   };
-  return {getPosts};
+  return {getData};
 };
 
 export default useContentful;
