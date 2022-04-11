@@ -1,5 +1,6 @@
 import React from 'react'
 import {useQuery, gql} from '@apollo/client'
+import {Link} from 'react-router-dom'
 
 
 const GET_PROJECTS = gql`
@@ -26,6 +27,7 @@ query Projects
 function Projects() {
   const { loading, error, data } = useQuery(GET_PROJECTS);
 
+
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
   return (
@@ -34,13 +36,16 @@ function Projects() {
       <div className="flex flex-col">
       {data.projectsCollection.items.map (project => {
         return (
-          <div className="flex flex-col mt-7" key={project.sys.id}>
+          <Link key={project.sys.id} to ={project.projectSlug}
+          state={{projectData: project}}>
+          <div className="flex flex-col mt-7 cursor-pointer">
           {project.projectImage && 
           <img className="mb-4 max-w-[85%] rounded h-[350px] object-cover" src={project.projectImage.url} alt={project.projectImage.title} />
           }
           <h3 className="mb-2 text-xl max-w-3">{project.projectTitle}</h3>
           <p className="text-lightsubtext max-w-[85%] dark:text-darksubtext">{project.projectExcerpt}</p>
           </div>
+          </Link>
         )
       })}
     </div>
