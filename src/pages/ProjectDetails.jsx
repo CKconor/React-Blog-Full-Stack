@@ -2,7 +2,6 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import ReactMarkdown from 'react-markdown'
 import CodeBlock from "../components/codeblock"
-import "../markdown.css"
 import remarkEmoji from 'remark-emoji'
 
 export default function ProjectDetails() {
@@ -18,7 +17,7 @@ export default function ProjectDetails() {
       <h1 className="text-5xl font-bold mb-3 mt-8">
         {projectData.projectTitle}
       </h1>
-      <ReactMarkdown remarkPlugins={[remarkEmoji]} components={CodeBlock} className="text-lightsubtext max-w-[85%] dark:text-darksubtext">{projectData.projectDetails}</ReactMarkdown>
+      <ReactMarkdown remarkPlugins={[remarkEmoji]} components={CodeBlock} className="markdown text-lightsubtext max-w-[85%] dark:text-darksubtext">{projectData.projectDetails}</ReactMarkdown>
     </div>
   );
 }

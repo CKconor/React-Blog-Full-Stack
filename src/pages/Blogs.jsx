@@ -1,6 +1,6 @@
 import React from 'react'
 import {useQuery, gql} from '@apollo/client'
-import ReactMarkdown from 'react-markdown'
+
 
 
 const GET_BLOGS = gql`

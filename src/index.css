@@ -54,4 +54,7 @@ code {
       list-style: disc;
       list-style-position: inside;
     }
+    .markdown p {
+      margin-bottom: 20px
+    }
     

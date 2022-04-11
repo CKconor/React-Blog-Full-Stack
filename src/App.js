@@ -7,13 +7,13 @@ import Projects from "./pages/Projects";
 import Blogs from "./pages/Blogs";
 import ProjectDetails from "./pages/ProjectDetails";
 import "./index.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App() {
   return (
     <div className="App dark:bg-darkmode bg-lightmode">
       <Router>
-        <Container>
+        <Container>W
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
