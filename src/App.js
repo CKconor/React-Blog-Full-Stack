@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App dark:bg-darkmode bg-lightmode">
       <Router>
-        <Container>W
+        <Container>
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
