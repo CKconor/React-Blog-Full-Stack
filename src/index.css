@@ -54,10 +54,14 @@ code {
       list-style: disc;
       list-style-position: inside;
     }
-    .markdown p {
+    .markdown p, ol {
       margin-bottom: 20px
     }
     .markdown img {
       margin-bottom: 20px;
+    }
+    .markdown blockquote {
+      padding-left: 1.5rem;
+      @apply border-l-4 border-darksubtext;
     }
     
