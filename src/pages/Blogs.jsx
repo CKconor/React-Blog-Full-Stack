@@ -43,7 +43,7 @@ function Blogs() {
           <div>
                 {blog.featureimage && (
                   <img
-                    className="mb-4 rounded h-[300px] object-cover"
+                    className="mb-4 w-full rounded h-[300px] object-cover"
                     src={blog.featureimage.url}
                     alt={blog.featureimage.title}
                   />
