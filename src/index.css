@@ -42,7 +42,7 @@ code {
       margin-bottom: 5px;
   }
   a {
-      cursor: pointer
+      cursor: pointer;
   }
   .footer {
       border-top: 1px solid #707070;
@@ -63,5 +63,8 @@ code {
     .markdown blockquote {
       padding-left: 1.5rem;
       @apply border-l-4 border-darksubtext;
+    }
+    .markdown a {
+      color: #60a5fa;
     }
     
