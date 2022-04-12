@@ -57,14 +57,17 @@ code {
     .markdown p, ol {
       margin-bottom: 20px
     }
+
     .markdown img {
       margin-bottom: 20px;
     }
     .markdown blockquote {
       padding-left: 1.5rem;
-      @apply border-l-4 border-darksubtext;
+
+      @apply border-l-4 border-darksubtext text-lightsubtext dark:text-darksubtext;
     }
     .markdown a {
       color: #60a5fa;
+      text-decoration: underline;
     }
     

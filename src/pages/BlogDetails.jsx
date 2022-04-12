@@ -19,7 +19,7 @@ function BlogDetails() {
       <h1 className="text-2xl md:text-5xl font-bold mb-3 mt-8">
         {blogData.blogTitle}
       </h1>
-      <ReactMarkdown remarkPlugins={[remarkGfm, remarkEmoji,remarkFrontmatter]} components={CodeBlock} className="markdown text-lightsubtext max-w-2xl dark:text-darksubtext">{blogData.blogContent}</ReactMarkdown>
+      <ReactMarkdown remarkPlugins={[remarkGfm, remarkEmoji,remarkFrontmatter]} components={CodeBlock} className="markdown text-darkmode max-w-2xl dark:text-lightmode">{blogData.blogContent}</ReactMarkdown>
     </div>
   )
 }

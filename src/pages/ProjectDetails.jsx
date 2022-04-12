@@ -17,7 +17,6 @@ export default function ProjectDetails() {
       <h1 className="text-5xl font-bold mb-3 mt-8">
         {projectData.projectTitle}
       </h1>
-      <ReactMarkdown remarkPlugins={[remarkEmoji]} components={CodeBlock} className="markdown text-lightsubtext max-w-2xl dark:text-darksubtext">{projectData.projectDetails}</ReactMarkdown>
     </div>
   );
 }
