@@ -16,7 +16,7 @@ function BlogDetails() {
         src={blogData.featureimage.url}
         alt={blogData.featureimage.title}
       />
-      <h1 className="text-5xl font-bold mb-3 mt-8">
+      <h1 className="text-2xl md:text-5xl font-bold mb-3 mt-8">
         {blogData.blogTitle}
       </h1>
       <ReactMarkdown remarkPlugins={[remarkGfm, remarkEmoji,remarkFrontmatter]} components={CodeBlock} className="markdown text-lightsubtext max-w-2xl dark:text-darksubtext">{blogData.blogContent}</ReactMarkdown>
