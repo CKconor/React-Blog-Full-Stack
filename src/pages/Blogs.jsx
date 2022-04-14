@@ -10,6 +10,7 @@ const GET_BLOGS = gql`
       items {
        blogTitle
         sys {
+          publishedAt
   id}
         featureimage {
           title
