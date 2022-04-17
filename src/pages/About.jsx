@@ -65,8 +65,8 @@ function About() {
         <ul className="list-disc list-inside text-sky-600 underline marker:text-lightsubtext dark:marker:text-darksubtext">
           <a href="https://youtube.com/ckplaysthegames"><li>YouTube</li></a>
           <a href="https://github.com/ckconor"><li>Github</li></a>
-          <li>LinkedIn</li>
-          <li>Dribble</li>
+          <a href="https://www.linkedin.com/in/conor-kemp-790920178"><li>LinkedIn</li></a>
+          <a href="https://dribbble.com/CKconor"><li>Dribble</li></a>
         </ul>
       </div>
       <div className="flex flex-col mt-10 basis-1/2 items-end invisible md:visible">
