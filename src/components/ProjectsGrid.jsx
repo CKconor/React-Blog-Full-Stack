@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 
 function ProjectsGrid() {
   return (
@@ -9,7 +10,7 @@ function ProjectsGrid() {
           <p className="max-w-prose mt-2 text-lightsubtext dark:text-darksubtext grow">
             E-Commerce Website built on Magento 2 CMS.
           </p>
-          <span className=" text-sm text-lightsubtext dark:text-darksubtext mt-4">
+          <span className="text-sm text-lightsubtext dark:text-darksubtext mt-4">
             More Info ->
           </span>
         </div>
@@ -33,7 +34,12 @@ function ProjectsGrid() {
             More Info ->
           </span>
         </div>
+        
       </div>
+      <Link
+              to={"/projects"}
+            ><p className="text-sm text-lightsubtext dark:text-darksubtext mt-4">View All Projects -></p>
+            </Link>
     </div>
   );
 }
