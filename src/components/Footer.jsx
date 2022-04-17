@@ -20,10 +20,10 @@ function Footer() {
           </NavLink>
             </div>
             <div className=" sm:flex-row flex-col flex sm:mt-5 ">
-                <a className="mr-10 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all" href= "/">YouTube</a>
-                <a className="mr-10 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all" href= "/">Github</a>
-                <a className="mr-10 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all" href= "/">Dribble</a>
-                <a className="mr-1 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all" href= "/">Linkedin</a>
+                <a className="mr-10 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all" href= "https://youtube.com/ckplaysthegames">YouTube</a>
+                <a className="mr-10 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all" href= "https://github.com/ckconor">Github</a>
+                <a className="mr-10 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all" href= "https://dribbble.com/CKconor">Dribble</a>
+                <a className="mr-1 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all" href= "https://www.linkedin.com/in/conor-kemp-790920178">Linkedin</a>
             </div>
         </div>
         <div className="flex flex-col sm:basis 1/4 sm:items-end mt-7 max-w-[130px]">
