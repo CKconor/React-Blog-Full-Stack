@@ -5,6 +5,7 @@ import CodeBlock from "../components/codeblock"
 import remarkEmoji from 'remark-emoji'
 import remarkGfm from "remark-gfm";
 import remarkFrontmatter from "remark-frontmatter";
+import Moment from 'react-moment';
 
 function BlogDetails() {
     const location = useLocation();
@@ -19,7 +20,7 @@ function BlogDetails() {
       <h1 className="text-2xl md:text-5xl font-bold mb-3 mt-8">
         {blogData.blogTitle}
       </h1>
-      <span>Conor Kemp / {blogData.sys.publishedAt}</span>
+      <span className="text-sm text-lightsubtext mb-3 mt-0 dark:text-darksubtext">Conor Kemp / <Moment format="MMMM Do, YYYY" date={blogData.sys.publishedAt}/></span>
       <ReactMarkdown remarkPlugins={[remarkGfm, remarkEmoji,remarkFrontmatter]} components={CodeBlock} className="markdown text-darkmode max-w-2xl dark:text-lightmode">{blogData.blogContent}</ReactMarkdown>
     </div>
   )
