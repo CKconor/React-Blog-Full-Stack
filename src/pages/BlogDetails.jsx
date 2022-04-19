@@ -17,10 +17,10 @@ function BlogDetails() {
         src={blogData.featureimage.url}
         alt={blogData.featureimage.title}
       />
-      <h1 className="text-2xl md:text-5xl font-bold mb-3 mt-8">
+      <h1 className="text-2xl md:text-5xl font-bold mb-2 mt-8">
         {blogData.blogTitle}
       </h1>
-      <span className="text-sm text-lightsubtext mb-3 mt-0 dark:text-darksubtext">Conor Kemp / <Moment format="MMMM Do, YYYY" date={blogData.sys.publishedAt}/></span>
+      <span className="text-sm text-lightsubtext mb-5 mt-0 dark:text-darksubtext">Conor Kemp / <Moment format="MMMM Do, YYYY" date={blogData.sys.publishedAt}/></span>
       <ReactMarkdown remarkPlugins={[remarkGfm, remarkEmoji,remarkFrontmatter]} components={CodeBlock} className="markdown text-darkmode max-w-2xl dark:text-lightmode">{blogData.blogContent}</ReactMarkdown>
     </div>
   )
