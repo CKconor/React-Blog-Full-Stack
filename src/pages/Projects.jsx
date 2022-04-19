@@ -48,9 +48,12 @@ function Projects() {
                   />
                 )}
                 <h3 className="mb-2 text-xl max-w-3">{project.projectTitle}</h3>
-                <p className="text-lightsubtext max-w-[85%] dark:text-darksubtext">
+                <p className="mb-3 text-lightsubtext max-w-[85%] dark:text-darksubtext">
                   {project.projectExcerpt}
                 </p>
+                <span className="text-sm text-lightsubtext dark:text-darksubtext mt-4">
+            More Info ->
+          </span>
               </div>
             </Link>
           );
