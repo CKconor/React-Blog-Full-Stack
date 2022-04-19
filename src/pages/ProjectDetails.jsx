@@ -1,8 +1,5 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import ReactMarkdown from 'react-markdown'
-import CodeBlock from "../components/codeblock"
-import remarkEmoji from 'remark-emoji'
 
 export default function ProjectDetails() {
   const location = useLocation();
