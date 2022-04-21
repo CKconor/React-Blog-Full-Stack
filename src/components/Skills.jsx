@@ -5,16 +5,28 @@ function Skills() {
   return (
     <div className="skills-container">
       <div className="flex flex-row mb-2 filter-row">
-        <a href="/#" className="mr-10 active hover:text-darkmode dark:hover:text-lightmode">
+        <a
+          href="/#"
+          className="mr-10 active hover:text-darkmode dark:hover:text-lightmode"
+        >
           All
         </a>
-        <a href="/#" className="mr-10 text-lightsubtext hover:text-darkmode hover:font-bold dark:hover:text-lightmode transition ease-in-out delay-50">
+        <a
+          href="/#"
+          className="mr-10 text-lightsubtext hover:text-darkmode hover:font-bold dark:hover:text-lightmode transition ease-in-out delay-50"
+        >
           Developing
         </a>
-        <a href="/#" className="mr-10 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition ease-in-out delay-50">
+        <a
+          href="/#"
+          className="mr-10 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition ease-in-out delay-50"
+        >
           Design
         </a>
-        <a href="/#" className="text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition ease-in-out delay-50">
+        <a
+          href="/#"
+          className="text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition ease-in-out delay-50"
+        >
           Business
         </a>
       </div>
