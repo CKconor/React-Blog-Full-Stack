@@ -7,7 +7,7 @@ export default function ProjectDetails() {
   return (
     <div className="flex flex-col mt-5 md:mt-10">
       <img
-        className="mb-4 max-w-2xl rounded h-[300px] object-cover" 
+        className="mb-4 max-w-2xl rounded h-[300px] object-cover"
         src={projectData.projectImage.url}
         alt={projectData.projectImage.title}
       />
