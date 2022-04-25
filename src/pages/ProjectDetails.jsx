@@ -1,5 +1,10 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import ReactMarkdown from 'react-markdown'
+import CodeBlock from "../components/codeblock"
+import remarkEmoji from 'remark-emoji'
+import remarkGfm from "remark-gfm";
+import remarkFrontmatter from "remark-frontmatter";
 
 export default function ProjectDetails() {
   const location = useLocation();
@@ -14,7 +19,7 @@ export default function ProjectDetails() {
       <h1 className="text-5xl font-bold mb-3 mt-8">
         {projectData.projectTitle}
       </h1>
-      <p>{projectData.ProjectDetails}</p>
+      <ReactMarkdown remarkPlugins={[remarkGfm, remarkEmoji,remarkFrontmatter]} components={CodeBlock} className="markdown text-darkmode max-w-2xl dark:text-lightmode">{projectData.projectDetails}</ReactMarkdown>
     </div>
   );
 }
