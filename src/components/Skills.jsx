@@ -5,7 +5,7 @@ function Skills() {
   return (
     <div className="skills-container">
       <div className="flex flex-row bg-skillcontainerlightbg dark:bg-skillcontainerdarkbg p-10 rounded text-lightsubtext dark:text-darksubtext">
-        <div className="flex-col basis-1/3">
+        <div className="flex-col md:basis-1/3 basis-full ">
           <ul>
             <li className="flex items-center">
               <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
@@ -49,7 +49,7 @@ function Skills() {
             </li>
           </ul>
         </div>
-        <div className="flex-col basis-1/3">
+        <div className="flex-col md:flex basis-1/3 hidden">
           <ul>
             <li className="flex items-center">
               <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
@@ -73,7 +73,7 @@ function Skills() {
             </li>
           </ul>
         </div>
-        <div className="flex-col basis-1/3">
+        <div className="flex-col md:flex basis-1/3 hidden">
           <ul>
             <li className="flex items-center">
               <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
