@@ -21,7 +21,7 @@ function Skills() {
             </li>
             <li className="flex items-center">
               <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Jquery
+              jQuery
             </li>
             <li className="flex items-center">
               <img className="float-left mr-1" alt="tickbox" src={Tickbox} />

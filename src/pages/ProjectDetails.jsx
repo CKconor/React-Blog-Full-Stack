@@ -16,7 +16,7 @@ export default function ProjectDetails() {
         src={projectData.projectImage.url}
         alt={projectData.projectImage.title}
       />
-      <h1 className="text-5xl font-bold mb-3 mt-8">
+      <h1 className="text-2xl md:text-5xl font-bold mb-2 mt-8">
         {projectData.projectTitle}
       </h1>
       <ReactMarkdown remarkPlugins={[remarkGfm, remarkEmoji,remarkFrontmatter]} components={CodeBlock} className="markdown text-darkmode max-w-2xl dark:text-lightmode">{projectData.projectDetails}</ReactMarkdown>
