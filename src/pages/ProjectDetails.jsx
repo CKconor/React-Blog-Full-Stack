@@ -14,6 +14,7 @@ export default function ProjectDetails() {
       <h1 className="text-5xl font-bold mb-3 mt-8">
         {projectData.projectTitle}
       </h1>
+      <p>{projectData.ProjectDetails}</p>
     </div>
   );
 }
