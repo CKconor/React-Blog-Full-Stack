@@ -50,7 +50,7 @@ function About() {
         </p>
         <h2 className="font-bold text-2xl sm:text-4xl mb-3 mt-6">Personal Life</h2>
         <p className="mb-4">
-        Outside of work I spend most of my time surronded by all things technology whether it be playing Video Games or building custom keyboards I find myself most comforted around technology. Alongside Tech I also love travelling and experiencing different cuisines with the goal of travelling to another country at least once a year.</p>
+        Outside of work I spend most of my time surrounded by all things technology whether it be playing Video Games or building custom keyboards I find myself most comfortable around technology. Alongside Tech I also love travelling and experiencing different cuisines with the goal of travelling to another country at least once a year.</p>
         <h2 className="font-bold text-2xl sm:text-4xl mb-3 mt-6">Games I'm Playing</h2>
         <div className="flex flex-col">
       {games.map (game => {
