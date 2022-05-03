@@ -36,7 +36,7 @@ function About() {
         <span className="text-xs text-lightsubtext dark:text-darksubtext mt-0">Jan 2022 - Present</span>
         <h3 className="font-bold  text-xl sm:text-2xl mb-1 mt-0">Raytheon UK</h3>
         <p className="mb-4">
-        HTML, SCSS, Docker, React, JSX, Git, AWS
+        Typescript, React, Docker, AWS, Node.js, Express, Jest, HTML, SCSS, Javascript
         </p>
         <span className="text-xs text-lightsubtext dark:text-darksubtext mt-0">Dec 2020 - Jan 2022</span>
         <h3 className="font-bold text-xl sm:text-2xl mb-1 mt-0">Gtech Creative Frontend Developer</h3>
