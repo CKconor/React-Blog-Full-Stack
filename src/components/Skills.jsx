@@ -21,6 +21,22 @@ function Skills() {
             </li>
             <li className="flex items-center">
               <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
+              Express
+            </li>
+            <li className="flex items-center">
+              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
+              Node
+            </li>
+            <li className="flex items-center">
+              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
+              TDD
+            </li>
+            <li className="flex items-center">
+              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
+              Agile Development
+            </li>
+            <li className="flex items-center">
+              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
               jQuery
             </li>
             <li className="flex items-center">
@@ -29,23 +45,7 @@ function Skills() {
             </li>
             <li className="flex items-center">
               <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Wordpress
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Magento 2
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Agile Development
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
               Git Source Control
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              PHP
             </li>
           </ul>
         </div>
