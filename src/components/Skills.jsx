@@ -37,11 +37,11 @@ function Skills() {
             </li>
             <li className="flex items-center">
               <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              jQuery
+              Typescript
             </li>
             <li className="flex items-center">
               <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              PHP
+              GraphQL
             </li>
             <li className="flex items-center">
               <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
