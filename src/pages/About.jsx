@@ -34,7 +34,7 @@ function About() {
         </p>
         <h2 className="font-bold  text-2xl sm:text-4xl mb-3 mt-6">Work History</h2>
         <span className="text-xs text-lightsubtext dark:text-darksubtext mt-0">Jan 2022 - Present</span>
-        <h3 className="font-bold  text-xl sm:text-2xl mb-1 mt-0">Raytheon UK</h3>
+        <h3 className="font-bold  text-xl sm:text-2xl mb-1 mt-0">Raytheon UK - Software Engineer</h3>
         <p className="mb-4">
         Typescript, React, Docker, AWS, Node.js, Express, Jest, HTML, SCSS, Javascript
         </p>
