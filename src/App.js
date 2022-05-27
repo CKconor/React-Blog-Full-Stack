@@ -10,6 +10,8 @@ import BlogDetails from "./pages/BlogDetails";
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
+
+
 function App() {
   return (
     <div className="App dark:bg-darkmode bg-lightmode">
