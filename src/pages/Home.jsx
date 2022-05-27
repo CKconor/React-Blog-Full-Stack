@@ -2,18 +2,9 @@ import Portrait from "../assets/portrait.png"
 import Contact from '../components/Contact'
 import Skills from '../components/Skills'
 import ProjectsGrid from "../components/ProjectsGrid";
-import {useEffect} from "react";
-import ReactGA from 'react-ga';
 
 
 function App() {
-  const TRACKING_ID = process.env.GA_TRACKING_ID; 
-  ReactGA.initialize(TRACKING_ID);
-
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  });
-
   return (
     <div className="App dark:bg-darkmode bg-lightmode">
         <div className="flex flex-row mt-5 md:mt-10">
