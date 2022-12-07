@@ -3,18 +3,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 function About() {
-  const [games, setGames] = useState([]);
-
-  useEffect(() => {
-    const recentGames = async () => {
-      const response = await axios(
-        "https://react-full-stack-blog.herokuapp.com/recentlyplayed"
-      );
-      setGames(response.data.response.games);
-    };
-    recentGames();
-  }, []);
-
   return (
     <div className="flex flex-row">
       <div className="flex flex-col mt-5 md:mt-10 basis-2/2 md:basis-1/2">
@@ -82,18 +70,6 @@ function About() {
           Tech I also love travelling and experiencing different cuisines with
           the goal of travelling to another country at least once a year.
         </p>
-        <h2 className="font-bold text-2xl sm:text-4xl mb-3 mt-6">
-          Games I'm Playing
-        </h2>
-        <div className="flex flex-col">
-          {games.map((game) => {
-            return (
-              <div className="flex flex-col mt-0" key={game.appid}>
-                <p>{game.name}</p>
-              </div>
-            );
-          })}
-        </div>
         <h2 className="font-bold text-2xl sm:text-4xl mb-3 mt-6">My Links</h2>
         <ul className="list-disc list-inside text-sky-600 underline marker:text-lightsubtext dark:marker:text-darksubtext">
           <a href="https://youtube.com/ckplaysthegames">
