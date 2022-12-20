@@ -50,7 +50,7 @@ function ExperienceGrid() {
             <h2 className="mb-1">{experience.company}</h2>
             <div className="flex flex-row flex-1 flex-wrap">
               {experience.skills.map((skill) => (
-                <div className="mr-2 bg-accentcolor rounded-md py-1 px-4 text-sm mt-2 text-lightmode dark:text-darkmode">
+                <div className="mr-2 bg-skillcontainerlightbg dark:bg-skillcontainerdarkbg text-lightsubtext dark:text-darksubtext rounded-md py-1 px-4 text-sm mt-2">
                   {skill}
                 </div>
               ))}
