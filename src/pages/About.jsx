@@ -1,6 +1,4 @@
 import Portrait from "../assets/portrait.png";
-import axios from "axios";
-import { useState, useEffect } from "react";
 
 function About() {
   return (
