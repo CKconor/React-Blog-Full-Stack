@@ -46,19 +46,21 @@ function ExperienceGrid() {
     <div>
       {experienceList.map((experience) => (
         <div className="hover:scale-105 transition-all flex flex-row flex-1 border-2 border-skillcontainerlighbg dark:border-skillcontainerdarkbg flex-wrap p-8 items-center rounded mb-8">
-          <div className="flex flex-col">
-            <h2 className="mb-1">{experience.company}</h2>
-            <div className="flex flex-row flex-1 flex-wrap">
-              {experience.skills.map((skill) => (
-                <div className="mr-2 bg-skillcontainerlightbg dark:bg-skillcontainerdarkbg text-lightsubtext dark:text-darksubtext rounded-md py-1 px-4 text-sm mt-2">
-                  {skill}
-                </div>
-              ))}
+          <Link to={"/about"}>
+            <div className="flex flex-col">
+              <h2 className="mb-1">{experience.company}</h2>
+              <div className="flex flex-row flex-1 flex-wrap">
+                {experience.skills.map((skill) => (
+                  <div className="mr-2 bg-skillcontainerlightbg dark:bg-skillcontainerdarkbg text-lightsubtext dark:text-darksubtext rounded-md py-1 px-4 text-sm mt-2">
+                    {skill}
+                  </div>
+                ))}
+              </div>
+              <p className="mt-4 text-lightsubtext dark:text-darksubtext">
+                {experience.description}
+              </p>
             </div>
-            <p className="mt-4 text-lightsubtext dark:text-darksubtext">
-              {experience.description}
-            </p>
-          </div>
+          </Link>
         </div>
       ))}
       <Link to={"/about"}>
