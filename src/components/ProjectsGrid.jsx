@@ -24,14 +24,12 @@ const GET_PROJECTS = gql`
 function ProjectsGrid() {
   const { loading, error, data } = useQuery(GET_PROJECTS);
 
-  const projects = data.projectCollection.items.slice(0, 3);
-
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   return (
     <div>
       <div className="flex sm:flex-row flex-col">
-        {projects.map((project) => {
+        {data.projectsCollection.items.slice(0, 3).map((project) => {
           return (
             <Link
               key={project.sys.id}
