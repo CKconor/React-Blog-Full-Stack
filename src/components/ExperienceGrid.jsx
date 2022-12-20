@@ -45,7 +45,7 @@ function ExperienceGrid() {
   return (
     <div>
       {experienceList.map((experience) => (
-        <div className="hover:scale-102 transition-all flex flex-row flex-1 border-2 border-skillcontainerlighbg dark:border-skillcontainerdarkbg flex-wrap p-8 items-center rounded mb-8">
+        <div className="hover:scale-105 transition-all flex flex-row flex-1 border-2 border-skillcontainerlighbg dark:border-skillcontainerdarkbg flex-wrap p-8 items-center rounded mb-8">
           <Link to={"/about"}>
             <div className="flex flex-col">
               <h2 className="mb-1">{experience.company}</h2>
