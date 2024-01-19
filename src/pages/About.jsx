@@ -23,7 +23,17 @@ function About() {
           Work History
         </h2>
         <span className="text-xs text-lightsubtext dark:text-darksubtext mt-0">
-          June 2022 - Present
+          June 2024 - Present
+        </span>
+        <h3 className="font-bold  text-xl sm:text-2xl mb-1 mt-0">
+          Configur - Lead Frontend Developer
+        </h3>
+        <p className="mb-4">
+          Typescript, React, MongoDB, AWS Lambda, Node.js, Express, Jest, HTML,
+          SCSS, Javascript, Serverless
+        </p>
+        <span className="text-xs text-lightsubtext dark:text-darksubtext mt-0">
+          June 2022 - Jan 2024
         </span>
         <h3 className="font-bold  text-xl sm:text-2xl mb-1 mt-0">
           Configur - Full Stack Developer
