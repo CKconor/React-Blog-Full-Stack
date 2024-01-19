@@ -23,7 +23,7 @@ function About() {
           Work History
         </h2>
         <span className="text-xs text-lightsubtext dark:text-darksubtext mt-0">
-          June 2024 - Present
+          Jan 2024 - Present
         </span>
         <h3 className="font-bold  text-xl sm:text-2xl mb-1 mt-0">
           Configur - Lead Frontend Developer
