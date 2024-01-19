@@ -3,72 +3,82 @@ import Portrait from "../assets/portrait.png";
 function About() {
   return (
     <div className="flex flex-row">
-      <div className="flex flex-col mt-5 md:mt-10 basis-2/2 md:basis-1/2">
-        <h1 className="text-3xl sm:text-5xl font-bold mb-10 mt-0">About Me</h1>
-        <h2 className="font-bold text-2xl sm:text-4xl mb-3">Job Title</h2>
+      <div className="basis-2/2 mt-5 flex flex-col md:mt-10 md:basis-1/2">
+        <h1 className="mb-10 mt-0 text-3xl font-bold sm:text-5xl">About Me</h1>
+        <h2 className="mb-3 text-2xl font-bold sm:text-4xl">Job Title</h2>
         <p>Lead Frontend Developer</p>
-        <h2 className="font-bold text-2xl sm:text-4xl mb-3 mt-6">Experience</h2>
+        <h2 className="mb-3 mt-6 text-2xl font-bold sm:text-4xl">Experience</h2>
         <p className="mb-4">
-          I have worked as a Frontend Developer for the past 3 years after
-          teaching myself coding during the pandemic after being furloughed and
-          bored. I love all things design and coding with a desire to really
-          push the boat out with designs and layouts.
+          Experienced Frontend Developer with a strong focus on NextJS, AWS
+          Lambda, React, Typescript, and Node. With a versatile career spanning
+          both startups and larger corporations, I bring a wealth of expertise
+          in delivering high-quality services across various sectors. My
+          proficiency in NextJS ensures efficient and performant web
+          applications, complemented by experience in AWS Lambda for serverless
+          computing.
         </p>
         <p>
-          Specialising in React Webpages and PHP driven to CMS's I truly believe
-          I can make you not only a beautiful website but also an extremely
-          efficient one.
+          Specializing in crafting React webpages and websites, I excel in
+          utilizing both headless and traditional CMS. My confidence lies in
+          creating not only visually stunning but also highly efficient
+          websites. With a dedicated focus on user experience and supported by
+          my proficiency in React, I ensure the development of engaging and
+          interactive web interfaces. Moreover, my expertise in PHP-driven CMS
+          empowers me to construct dynamic and content-rich websites tailored to
+          diverse needs. Committed to delivering solutions that not only meet
+          aesthetic standards but also optimize performance and functionality, I
+          strive to provide a seamless user experience.
         </p>
-        <h2 className="font-bold  text-2xl sm:text-4xl mb-3 mt-6">
+        <h2 className="mb-3  mt-6 text-2xl font-bold sm:text-4xl">
           Work History
         </h2>
-        <span className="text-xs text-lightsubtext dark:text-darksubtext mt-0">
+        <span className="mt-0 text-xs text-lightsubtext dark:text-darksubtext">
           Jan 2024 - Present
         </span>
-        <h3 className="font-bold  text-xl sm:text-2xl mb-1 mt-0">
+        <h3 className="mb-1  mt-0 text-xl font-bold sm:text-2xl">
           Configur - Lead Frontend Developer
         </h3>
         <p className="mb-4">
           Typescript, React, MongoDB, AWS Lambda, Node.js, Express, Jest, HTML,
           SCSS, Javascript, Serverless
         </p>
-        <span className="text-xs text-lightsubtext dark:text-darksubtext mt-0">
+        <span className="mt-0 text-xs text-lightsubtext dark:text-darksubtext">
           June 2022 - Jan 2024
         </span>
-        <h3 className="font-bold  text-xl sm:text-2xl mb-1 mt-0">
+        <h3 className="mb-1  mt-0 text-xl font-bold sm:text-2xl">
           Configur - Full Stack Developer
         </h3>
         <p className="mb-4">
           Typescript, React, MongoDB, AWS Lambda, Node.js, Express, Jest, HTML,
           SCSS, Javascript, Serverless
         </p>
-        <span className="text-xs text-lightsubtext dark:text-darksubtext mt-0">
+        <span className="mt-0 text-xs text-lightsubtext dark:text-darksubtext">
           Jan 2022 - Jun 2022
         </span>
-        <h3 className="font-bold  text-xl sm:text-2xl mb-1 mt-0">
+        <h3 className="mb-1  mt-0 text-xl font-bold sm:text-2xl">
           Raytheon UK - Software Engineer
         </h3>
         <p className="mb-4">
           Typescript, React, Docker, AWS, Node.js, Express, Jest, HTML, SCSS,
           Javascript
         </p>
-        <span className="text-xs text-lightsubtext dark:text-darksubtext mt-0">
+        <span className="mt-0 text-xs text-lightsubtext dark:text-darksubtext">
           Dec 2020 - Jan 2022
         </span>
-        <h3 className="font-bold text-xl sm:text-2xl mb-1 mt-0">
+        <h3 className="mb-1 mt-0 text-xl font-bold sm:text-2xl">
           Gtech - Creative Frontend Developer
         </h3>
         <p className="mb-4">
           HTML, SCSS , XML, Magento 2, PHP, Jquery, Bootstrap, Git
         </p>
-        <span className="text-xs text-lightsubtext dark:text-darksubtext mt-0">
+        <span className="mt-0 text-xs text-lightsubtext dark:text-darksubtext">
           May 2020 - Dec 2020
         </span>
-        <h3 className="font-bold text-xl sm:text-2xl mb-1 mt-0">
+        <h3 className="mb-1 mt-0 text-xl font-bold sm:text-2xl">
           This is Union - Junior Developer
         </h3>
         <p className="mb-4">HTML, SCSS, Jquery, Wordpress, PHP</p>
-        <h2 className="font-bold text-2xl sm:text-4xl mb-3 mt-6">
+        <h2 className="mb-3 mt-6 text-2xl font-bold sm:text-4xl">
           Personal Life
         </h2>
         <p className="mb-4">
@@ -78,8 +88,8 @@ function About() {
           Tech I also love travelling and experiencing different cuisines with
           the goal of travelling to another country at least once a year.
         </p>
-        <h2 className="font-bold text-2xl sm:text-4xl mb-3 mt-6">My Links</h2>
-        <ul className="list-disc list-inside text-sky-600 underline marker:text-lightsubtext dark:marker:text-darksubtext">
+        <h2 className="mb-3 mt-6 text-2xl font-bold sm:text-4xl">My Links</h2>
+        <ul className="list-inside list-disc text-sky-600 underline marker:text-lightsubtext dark:marker:text-darksubtext">
           <a href="https://youtube.com/ckplaysthegames">
             <li>YouTube</li>
           </a>
@@ -94,7 +104,7 @@ function About() {
           </a>
         </ul>
       </div>
-      <div className="flex flex-col mt-10 basis-1/2 items-end invisible md:visible">
+      <div className="invisible mt-10 flex basis-1/2 flex-col items-end md:visible">
         <img src={Portrait} alt="Portrait" />
       </div>
     </div>
