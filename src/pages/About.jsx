@@ -6,7 +6,7 @@ function About() {
       <div className="flex flex-col mt-5 md:mt-10 basis-2/2 md:basis-1/2">
         <h1 className="text-3xl sm:text-5xl font-bold mb-10 mt-0">About Me</h1>
         <h2 className="font-bold text-2xl sm:text-4xl mb-3">Job Title</h2>
-        <p>Software Engineer & Frontend Developer</p>
+        <p>Lead Frontend Developer</p>
         <h2 className="font-bold text-2xl sm:text-4xl mb-3 mt-6">Experience</h2>
         <p className="mb-4">
           I have worked as a Frontend Developer for the past 3 years after
