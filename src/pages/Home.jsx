@@ -9,7 +9,7 @@ function App() {
       <div className="flex flex-row mt-5 md:mt-10">
         <div className="flex flex-col  basis-2/2 md:basis-3/4 items-start">
           <h1 className="text-3xl md:text-5xl font-bold mb-0 mt-0">
-            Web Developer, UI Designer
+            Fullstack Developer, UI Designer
           </h1>
           <h3 className="text-1xl md:text-3xl mt-1 font-normal text-darkmode dark:text-lightmode">
             Conor Kemp
