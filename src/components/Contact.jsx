@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
 
 function Contact(className) {
   return (
-    <div className="transition duration-0 hover:duration-150 bg-accentcolor hover:bg-transparent hover:text-accentcolor text-lightmode dark:text-darkmode py-2 px-4 border border-accentcolor rounded">
-        <a href="mailto:conorkemp@gmail.com"><button className="font-bold">Contact Me</button></a>
+    <div className="rounded border border-accentcolor bg-accentcolor px-4 py-2 text-lightmode transition duration-0 hover:bg-transparent hover:text-accentcolor hover:duration-150 dark:text-darkmode">
+      <a href="mailto:conorkempmedia@gmail.com">
+        <button className="font-bold">Contact Me</button>
+      </a>
     </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;
