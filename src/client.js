@@ -3,8 +3,8 @@ import { createClient } from "contentful";
 const useContentful = () => {
   
   const contentfulClient = createClient({
-    space: "qklgdv24qn7u",
-    accessToken: "Ea1WLJCsjSapvSBHOgyBv-d5zebVbKUo8vCLBfcUs6c"
+    space: proccess.env.REACT_APP_CONTENTFUL_SPACE_ID,
+    accessToken: proccess.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN,
   });
   const getData = async () => {
     try {
