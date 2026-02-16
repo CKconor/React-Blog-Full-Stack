@@ -1,99 +1,40 @@
 import React from "react";
-import Tickbox from "../assets/Tickbox.png";
+
+const skillCategories = [
+  {
+    title: "Development",
+    skills: ["Next.js", "React", "TypeScript", "Node.js", "Express", "GraphQL", "HTML/CSS", "SCSS", "Jest", "Git", "Agile"],
+  },
+  {
+    title: "Design",
+    skills: ["Figma", "Adobe XD", "Tailwind CSS", "Bootstrap", "Minimalism"],
+  },
+  {
+    title: "Approach",
+    skills: ["Clear Communication", "Reasonable Deadlines", "Dedicated Mindset", "Fair Pricing"],
+  },
+];
 
 function Skills() {
   return (
-    <div className="skills-container">
-      <div className="flex flex-row bg-skillcontainerlightbg dark:bg-skillcontainerdarkbg p-10 rounded text-lightsubtext dark:text-darksubtext">
-        <div className="flex-col md:basis-1/3 basis-full ">
-          <ul>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              React
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              HTML
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              SCSS
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Express
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Node
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              TDD (Jest)
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Agile Development
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Typescript
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              GraphQL
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Git Source Control
-            </li>
-          </ul>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      {skillCategories.map((category) => (
+        <div key={category.title}>
+          <h3 className="text-xs uppercase tracking-widest text-lightsubtext dark:text-darksubtext mb-5 font-medium">
+            {category.title}
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {category.skills.map((skill) => (
+              <span
+                key={skill}
+                className="text-sm px-3 py-1.5 rounded-full border border-border dark:border-borderdark text-lightsubtext dark:text-darksubtext hover:border-accentcolor hover:text-accentcolor transition-colors cursor-default"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
-        <div className="flex-col md:flex basis-1/3 hidden">
-          <ul>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Adobe XD
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Figma
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Minimalism
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Bootstrap
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Tailwind CSS
-            </li>
-          </ul>
-        </div>
-        <div className="flex-col md:flex basis-1/3 hidden">
-          <ul>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Fair Prices
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Clear Communication
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Reasonable Deadlines
-            </li>
-            <li className="flex items-center">
-              <img className="float-left mr-1" alt="tickbox" src={Tickbox} />
-              Dedicated Mindset
-            </li>
-          </ul>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }

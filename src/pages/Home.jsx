@@ -5,40 +5,53 @@ import ExperienceGrid from "../components/ExperienceGrid";
 
 function App() {
   return (
-    <div className="App dark:bg-darkmode bg-lightmode">
-      <div className="flex flex-row mt-5 md:mt-10">
-        <div className="flex flex-col  basis-2/2 md:basis-3/4 items-start">
-          <h1 className="text-3xl md:text-5xl font-bold mb-0 mt-0">
-            Fullstack Developer, UI Designer
-          </h1>
-          <h3 className="text-1xl md:text-3xl mt-1 font-normal text-darkmode dark:text-lightmode">
-            Conor Kemp
-          </h3>
-          <p className="max-w-xl mt-6 text-1xl text-lightsubtext dark:text-darksubtext">
-            Web Developer and Designer based in the UK, specializing in
-            e-commerce and business branding alongside modern frameworks such as
-            React and CMS systems such as Wordpress
-          </p>
-          <div className="mt-5 mb-10">
-            <Contact />
+    <div className="dark:bg-darkmode bg-lightmode">
+      {/* Hero */}
+      <section className="pt-16 pb-20 md:pt-24 md:pb-28">
+        <div className="flex flex-row items-start justify-between">
+          <div className="flex flex-col max-w-2xl">
+            <span className="opacity-0 animate-fade-up text-xs uppercase tracking-widest text-accentcolor mb-6 font-medium">
+              Fullstack Developer & UI Designer
+            </span>
+            <h1 className="opacity-0 animate-fade-up stagger-1 font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-0">
+              Conor Kemp
+            </h1>
+            <p className="opacity-0 animate-fade-up stagger-2 mt-8 text-base text-lightsubtext dark:text-darksubtext leading-relaxed max-w-md">
+              I build fast, polished web experiences with Next.js, React, and
+              TypeScript. From e-commerce platforms to data-driven applications,
+              I focus on clean code, sharp design, and performance that scales.
+            </p>
+            <div className="opacity-0 animate-fade-up stagger-3 mt-8">
+              <Contact />
+            </div>
+          </div>
+          <div className="hidden lg:block opacity-0 animate-fade-in stagger-4 w-48 flex-shrink-0 ml-12">
+            <img
+              src={Portrait}
+              alt="Conor Kemp"
+              className="w-full rounded-sm grayscale hover:grayscale-0 transition-all duration-500"
+            />
           </div>
         </div>
-        <div className="flex flex-col basis-1/4  items-end lg:visible invisible">
-          <img src={Portrait} alt="" />
+      </section>
+
+      {/* Skills */}
+      <section className="pb-20 opacity-0 animate-fade-up stagger-5">
+        <div className="flex items-center gap-4 mb-10">
+          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">Skills</h2>
+          <div className="w-full h-px bg-border dark:bg-borderdark" />
         </div>
-      </div>
-      <div className="skills-section flex flex-col mb-10">
-        <h2 className="text-4xl text-darkmode dark:text-lightmode font-bold mt-0 mb-5">
-          Skills
-        </h2>
         <Skills />
-      </div>
-      <div className="experience-section flex flex-col">
-        <h2 className="text-4xl text-darkmode dark:text-lightmode font-bold mt-0 mb-5">
-          Experience
-        </h2>
+      </section>
+
+      {/* Experience */}
+      <section className="pb-10 opacity-0 animate-fade-up stagger-6">
+        <div className="flex items-center gap-4 mb-6">
+          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">Experience</h2>
+          <div className="w-full h-px bg-border dark:bg-borderdark" />
+        </div>
         <ExperienceGrid />
-      </div>
+      </section>
     </div>
   );
 }

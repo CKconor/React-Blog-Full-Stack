@@ -1,112 +1,166 @@
 import Portrait from "../assets/portrait.png";
 
+const workHistory = [
+  {
+    period: "Jan 2024 - Present",
+    company: "Configur",
+    role: "Lead Frontend Developer",
+    tech: "Next.js, TypeScript, React, MongoDB, AWS Lambda, Node.js, Express, Jest, Serverless",
+  },
+  {
+    period: "Jun 2022 - Jan 2024",
+    company: "Configur",
+    role: "Full Stack Developer",
+    tech: "Next.js, TypeScript, React, MongoDB, AWS Lambda, Node.js, Express, Jest, Serverless",
+  },
+  {
+    period: "Jan 2022 - Jun 2022",
+    company: "Raytheon UK",
+    role: "Software Engineer",
+    tech: "TypeScript, React, Docker, AWS, Node.js, Express, Jest",
+  },
+  {
+    period: "Dec 2020 - Jan 2022",
+    company: "Gtech",
+    role: "Creative Frontend Developer",
+    tech: "HTML, SCSS, XML, Magento 2, PHP, jQuery, Bootstrap, Git",
+  },
+  {
+    period: "May 2020 - Dec 2020",
+    company: "This is Union",
+    role: "Junior Developer",
+    tech: "HTML, SCSS, jQuery, WordPress, PHP",
+  },
+];
+
+const socialLinks = [
+  { href: "https://youtube.com/ckplaysthegames", label: "YouTube" },
+  { href: "https://github.com/ckconor", label: "GitHub" },
+  { href: "https://www.linkedin.com/in/conor-kemp-790920178", label: "LinkedIn" },
+  { href: "https://dribbble.com/CKconor", label: "Dribbble" },
+];
+
 function About() {
   return (
-    <div className="flex flex-row">
-      <div className="basis-2/2 mt-5 flex flex-col md:mt-10 md:basis-1/2">
-        <h1 className="mb-10 mt-0 text-3xl font-bold sm:text-5xl">About Me</h1>
-        <h2 className="mb-3 text-2xl font-bold sm:text-4xl">Job Title</h2>
-        <p>Lead Frontend Developer</p>
-        <h2 className="mb-3 mt-6 text-2xl font-bold sm:text-4xl">Experience</h2>
-        <p className="mb-4">
-          Experienced Frontend Developer with a strong focus on NextJS, AWS
-          Lambda, React, Typescript, and Node. With a versatile career spanning
-          both startups and larger corporations, I bring a wealth of expertise
-          in delivering high-quality services across various sectors. My
-          proficiency in NextJS ensures efficient and performant web
-          applications, complemented by experience in AWS Lambda for serverless
-          computing.
-        </p>
-        <p>
-          Specializing in crafting React webpages and websites, I excel in
-          utilizing both headless and traditional CMS. My confidence lies in
-          creating not only visually stunning but also highly efficient
-          websites. With a dedicated focus on user experience and supported by
-          my proficiency in React, I ensure the development of engaging and
-          interactive web interfaces. Moreover, my expertise in PHP-driven CMS
-          empowers me to construct dynamic and content-rich websites tailored to
-          diverse needs. Committed to delivering solutions that not only meet
-          aesthetic standards but also optimize performance and functionality, I
-          strive to provide a seamless user experience.
-        </p>
-        <h2 className="mb-3  mt-6 text-2xl font-bold sm:text-4xl">
-          Work History
-        </h2>
-        <span className="mt-0 text-xs text-lightsubtext dark:text-darksubtext">
-          Jan 2024 - Present
-        </span>
-        <h3 className="mb-1  mt-0 text-xl font-bold sm:text-2xl">
-          Configur - Lead Frontend Developer
-        </h3>
-        <p className="mb-4">
-          Typescript, React, MongoDB, AWS Lambda, Node.js, Express, Jest, HTML,
-          SCSS, Javascript, Serverless
-        </p>
-        <span className="mt-0 text-xs text-lightsubtext dark:text-darksubtext">
-          June 2022 - Jan 2024
-        </span>
-        <h3 className="mb-1  mt-0 text-xl font-bold sm:text-2xl">
-          Configur - Full Stack Developer
-        </h3>
-        <p className="mb-4">
-          Typescript, React, MongoDB, AWS Lambda, Node.js, Express, Jest, HTML,
-          SCSS, Javascript, Serverless
-        </p>
-        <span className="mt-0 text-xs text-lightsubtext dark:text-darksubtext">
-          Jan 2022 - Jun 2022
-        </span>
-        <h3 className="mb-1  mt-0 text-xl font-bold sm:text-2xl">
-          Raytheon UK - Software Engineer
-        </h3>
-        <p className="mb-4">
-          Typescript, React, Docker, AWS, Node.js, Express, Jest, HTML, SCSS,
-          Javascript
-        </p>
-        <span className="mt-0 text-xs text-lightsubtext dark:text-darksubtext">
-          Dec 2020 - Jan 2022
-        </span>
-        <h3 className="mb-1 mt-0 text-xl font-bold sm:text-2xl">
-          Gtech - Creative Frontend Developer
-        </h3>
-        <p className="mb-4">
-          HTML, SCSS , XML, Magento 2, PHP, Jquery, Bootstrap, Git
-        </p>
-        <span className="mt-0 text-xs text-lightsubtext dark:text-darksubtext">
-          May 2020 - Dec 2020
-        </span>
-        <h3 className="mb-1 mt-0 text-xl font-bold sm:text-2xl">
-          This is Union - Junior Developer
-        </h3>
-        <p className="mb-4">HTML, SCSS, Jquery, Wordpress, PHP</p>
-        <h2 className="mb-3 mt-6 text-2xl font-bold sm:text-4xl">
-          Personal Life
-        </h2>
-        <p className="mb-4">
-          Outside of work I spend most of my time surrounded by all things
-          technology whether it be playing Video Games or building custom
-          keyboards I find myself most comfortable around technology. Alongside
-          Tech I also love travelling and experiencing different cuisines with
-          the goal of travelling to another country at least once a year.
-        </p>
-        <h2 className="mb-3 mt-6 text-2xl font-bold sm:text-4xl">My Links</h2>
-        <ul className="list-inside list-disc text-sky-600 underline marker:text-lightsubtext dark:marker:text-darksubtext">
-          <a href="https://youtube.com/ckplaysthegames">
-            <li>YouTube</li>
-          </a>
-          <a href="https://github.com/ckconor">
-            <li>Github</li>
-          </a>
-          <a href="https://www.linkedin.com/in/conor-kemp-790920178">
-            <li>LinkedIn</li>
-          </a>
-          <a href="https://dribbble.com/CKconor">
-            <li>Dribble</li>
-          </a>
-        </ul>
+    <div className="pt-12 md:pt-20">
+      <div className="flex flex-row items-start justify-between mb-16">
+        <div className="max-w-xl">
+          <span className="text-xs uppercase tracking-widest text-accentcolor mb-4 block font-medium opacity-0 animate-fade-up">
+            About
+          </span>
+          <h1 className="font-serif text-4xl md:text-6xl tracking-tight leading-[1.05] opacity-0 animate-fade-up stagger-1">
+            Conor Kemp
+          </h1>
+          <p className="text-lg text-lightsubtext dark:text-darksubtext mt-2 opacity-0 animate-fade-up stagger-2">
+            Lead Frontend Developer
+          </p>
+        </div>
+        <div className="hidden md:block w-40 flex-shrink-0 ml-12 opacity-0 animate-fade-in stagger-3">
+          <img
+            src={Portrait}
+            alt="Conor Kemp"
+            className="w-full rounded-sm grayscale hover:grayscale-0 transition-all duration-500"
+          />
+        </div>
       </div>
-      <div className="invisible mt-10 flex basis-1/2 flex-col items-end md:visible">
-        <img src={Portrait} alt="Portrait" />
-      </div>
+
+      {/* Bio */}
+      <section className="mb-16 opacity-0 animate-fade-up stagger-3">
+        <div className="flex items-center gap-4 mb-8">
+          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">Experience</h2>
+          <div className="w-full h-px bg-border dark:bg-borderdark" />
+        </div>
+        <div className="max-w-xl space-y-5 text-sm leading-relaxed text-lightsubtext dark:text-darksubtext">
+          <p>
+            Experienced Frontend Developer with a primary focus on Next.js, React,
+            TypeScript, and Node. With a versatile career spanning both startups
+            and larger corporations, I bring expertise in building performant,
+            server-rendered applications and delivering high-quality services
+            across various sectors.
+          </p>
+          <p>
+            Specializing in Next.js and React, I excel in building fast,
+            SEO-friendly web applications using both headless and traditional CMS.
+            My focus lies in creating visually stunning and highly efficient
+            websites with engaging, interactive interfaces. Committed to delivering
+            solutions that optimize performance and functionality for a seamless
+            user experience.
+          </p>
+        </div>
+      </section>
+
+      {/* Work History */}
+      <section className="mb-16 opacity-0 animate-fade-up stagger-4">
+        <div className="flex items-center gap-4 mb-8">
+          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">Work History</h2>
+          <div className="w-full h-px bg-border dark:bg-borderdark" />
+        </div>
+        <div className="flex flex-col">
+          {workHistory.map((job) => (
+            <div
+              key={`${job.company}-${job.period}`}
+              className="py-6 border-b border-border dark:border-borderdark last:border-b-0"
+            >
+              <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-2">
+                <h3 className="text-base font-medium mb-0">
+                  {job.company}
+                  <span className="text-lightsubtext dark:text-darksubtext font-normal"> &mdash; {job.role}</span>
+                </h3>
+                <span className="text-xs text-lightsubtext dark:text-darksubtext font-mono shrink-0">
+                  {job.period}
+                </span>
+              </div>
+              <p className="text-sm text-lightsubtext dark:text-darksubtext">
+                {job.tech}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Personal */}
+      <section className="mb-16 opacity-0 animate-fade-up stagger-5">
+        <div className="flex items-center gap-4 mb-8">
+          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">Personal</h2>
+          <div className="w-full h-px bg-border dark:bg-borderdark" />
+        </div>
+        <p className="text-sm text-lightsubtext dark:text-darksubtext leading-relaxed max-w-xl">
+          Outside of work I spend most of my time surrounded by technology &mdash;
+          whether playing video games or building custom keyboards. Alongside tech,
+          I love travelling and experiencing different cuisines, with the goal of
+          visiting another country at least once a year.
+        </p>
+      </section>
+
+      {/* Links */}
+      <section className="opacity-0 animate-fade-up stagger-6">
+        <div className="flex items-center gap-4 mb-8">
+          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">Links</h2>
+          <div className="w-full h-px bg-border dark:bg-borderdark" />
+        </div>
+        <div className="flex flex-wrap gap-4">
+          {socialLinks.map(({ href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 text-sm px-4 py-2.5 rounded-full border border-border dark:border-borderdark text-lightsubtext dark:text-darksubtext hover:border-accentcolor hover:text-accentcolor transition-colors"
+            >
+              {label}
+              <svg
+                className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+              </svg>
+            </a>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

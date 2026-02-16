@@ -1,65 +1,73 @@
 import React from "react";
-import Contact from "./Contact";
 import { NavLink } from "react-router-dom";
+
+const socialLinks = [
+  { href: "https://github.com/ckconor", label: "GitHub" },
+  { href: "https://www.linkedin.com/in/conor-kemp-790920178", label: "LinkedIn" },
+  { href: "https://dribbble.com/CKconor", label: "Dribbble" },
+  { href: "https://youtube.com/ckplaysthegames", label: "YouTube" },
+];
+
+const navItems = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/projects", label: "Projects" },
+  { to: "/blog", label: "Blog" },
+];
+
 function Footer() {
   return (
-    <footer className="footer mt-10 flex flex-col sm:flex-row justify-between text-lightsubtext dark:text-darksubtext">
-      <div className="flex flex-col sm:basis 3/4">
-        <div className=" flex-col sm:flex-row flex sm:mt-7 mt-4">
-          <NavLink
-            to={"/"}
-            className="mr-10 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to={"/about"}
-            className="mr-10 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all"
-          >
-            About
-          </NavLink>
-          <NavLink
-            to={"/projects"}
-            className="mr-10 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all"
-          >
-            Projects
-          </NavLink>
-          <NavLink
-            to={"/blog"}
-            className="mr-10 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all"
-          >
-            Blog
-          </NavLink>
+    <footer className="mt-20 pt-10 border-t border-border dark:border-borderdark">
+      <div className="flex flex-col md:flex-row justify-between gap-10">
+        <div className="flex flex-col gap-6">
+          <span className="font-serif text-xl tracking-tight">Conor Kemp</span>
+          <p className="text-sm text-lightsubtext dark:text-darksubtext max-w-xs leading-relaxed">
+            Fullstack developer & UI designer based in the UK, building clean digital experiences.
+          </p>
         </div>
-        <div className=" sm:flex-row flex-col flex sm:mt-5 ">
-          <a
-            className="mr-10 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all"
-            href="https://youtube.com/ckplaysthegames"
-          >
-            YouTube
-          </a>
-          <a
-            className="mr-10 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all"
-            href="https://github.com/ckconor"
-          >
-            Github
-          </a>
-          <a
-            className="mr-10 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all"
-            href="https://dribbble.com/CKconor"
-          >
-            Dribble
-          </a>
-          <a
-            className="mr-1 mb-1 text-lightsubtext hover:text-darkmode dark:hover:text-lightmode hover:font-bold transition-all"
-            href="https://www.linkedin.com/in/conor-kemp-790920178"
-          >
-            Linkedin
-          </a>
+        <div className="flex gap-16">
+          <div className="flex flex-col gap-3">
+            <span className="text-xs uppercase tracking-widest text-lightsubtext dark:text-darksubtext mb-1">
+              Navigate
+            </span>
+            {navItems.map(({ to, label }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className="text-sm text-lightsubtext dark:text-darksubtext hover:text-darkmode dark:hover:text-lightmode transition-colors"
+              >
+                {label}
+              </NavLink>
+            ))}
+          </div>
+          <div className="flex flex-col gap-3">
+            <span className="text-xs uppercase tracking-widest text-lightsubtext dark:text-darksubtext mb-1">
+              Connect
+            </span>
+            {socialLinks.map(({ href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-lightsubtext dark:text-darksubtext hover:text-darkmode dark:hover:text-lightmode transition-colors"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
-      <div className="flex flex-col sm:basis 1/4 sm:items-end mt-7 max-w-[130px]">
-        <Contact />
+      <div className="mt-10 pt-6 border-t border-border dark:border-borderdark flex items-center justify-between">
+        <span className="text-xs text-lightsubtext dark:text-darksubtext">
+          &copy; {new Date().getFullYear()} Conor Kemp
+        </span>
+        <a
+          href="mailto:conorkempwebstudio@gmail.com"
+          className="text-xs text-accentcolor hover:opacity-70 transition-opacity"
+        >
+          conorkempwebstudio@gmail.com
+        </a>
       </div>
     </footer>
   );

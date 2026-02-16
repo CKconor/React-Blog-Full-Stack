@@ -4,70 +4,83 @@ import { Link } from "react-router-dom";
 const experienceList = [
   {
     company: "Configur",
-    role: "Full Stack Developer",
-    skills: [
-      "React",
-      "Typescript",
-      "Node",
-      "AWS Lambda",
-      "MongoDB",
-      "Redux",
-      "Jest",
-    ],
+    role: "Lead Frontend Developer",
+    period: "Jan 2024 - Present",
+    skills: ["Next.js", "React", "TypeScript", "AWS Lambda", "MongoDB", "Redux", "Jest"],
     description:
-      "Working as part of a startup team of 8 developers creating a data platform for aggregating and collating data using React, Styled Components, MongoDB, AWS Lambda, AWS Aurora, Typescript and Redux. Serving a variety of clients across multiple sectors and industries",
+      "Leading frontend development on a Next.js-powered data platform for aggregating and collating data. Serving clients across multiple sectors and industries.",
   },
   {
-    company: "Raytheon",
-    role: "Software Engineer",
-    skills: [
-      "React",
-      "Typescript",
-      "Node",
-      "Docker",
-      "AWS Lambda",
-      "Jest",
-      "Cypress",
-    ],
+    company: "Configur",
+    role: "Full Stack Developer",
+    period: "Jun 2022 - Jan 2024",
+    skills: ["Next.js", "React", "TypeScript", "AWS Lambda", "MongoDB", "Node.js", "Jest"],
     description:
-      "Developing React Applications using React, Bootstrap, AWS, Docker, Node and Express. Creating applications that impacted peoples day to day lives and benefiting the country",
+      "Built and maintained a data platform as part of a startup team of 8 developers using React, MongoDB, AWS Lambda, and TypeScript.",
+  },
+  {
+    company: "Raytheon UK",
+    role: "Software Engineer",
+    period: "Jan 2022 - Jun 2022",
+    skills: ["React", "TypeScript", "Docker", "AWS", "Node.js", "Cypress"],
+    description:
+      "Developed React applications using AWS, Docker, Node and Express. Creating applications that impacted peoples day to day lives.",
   },
   {
     company: "Gtech",
-    role: "Frontend Developer",
+    role: "Creative Frontend Developer",
+    period: "Dec 2020 - Jan 2022",
     skills: ["Magento 2", "PHP", "Node", "SCSS", "Git"],
     description:
-      "I helped move the company to a brand new CMS Magento 2 and launched a separate international site while working as the solo frontend developer",
+      "Migrated the company to Magento 2 and launched a separate international site as the solo frontend developer.",
+  },
+  {
+    company: "This is Union",
+    role: "Junior Developer",
+    period: "May 2020 - Dec 2020",
+    skills: ["HTML", "SCSS", "jQuery", "WordPress", "PHP"],
+    description:
+      "Built and maintained WordPress websites and custom themes for a range of agency clients.",
   },
 ];
 
 function ExperienceGrid() {
   return (
-    <div>
-      {experienceList.map((experience) => (
-        <div className="hover:scale-105 transition-all flex flex-row flex-1 border-2 border-skillcontainerlighbg dark:border-skillcontainerdarkbg flex-wrap p-8 items-center rounded mb-8">
-          <Link to={"/about"}>
-            <div className="flex flex-col">
-              <h2 className="mb-1">{experience.company}</h2>
-              <div className="flex flex-row flex-1 flex-wrap">
-                {experience.skills.map((skill) => (
-                  <div className="mr-2 bg-skillcontainerlightbg dark:bg-skillcontainerdarkbg text-lightsubtext dark:text-darksubtext rounded-md py-1 px-4 text-sm mt-2">
-                    {skill}
-                  </div>
-                ))}
-              </div>
-              <p className="mt-4 text-lightsubtext dark:text-darksubtext">
-                {experience.description}
-              </p>
+    <div className="flex flex-col">
+      {experienceList.map((experience, index) => (
+        <Link
+          to="/about"
+          key={`${experience.company}-${experience.period}`}
+          className="group block py-8 border-b border-border dark:border-borderdark last:border-b-0 transition-colors"
+        >
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+            <div>
+              <h3 className="text-lg font-medium mb-0 group-hover:text-accentcolor transition-colors">
+                {experience.company}
+              </h3>
+              <span className="text-sm text-lightsubtext dark:text-darksubtext">
+                {experience.role}
+              </span>
             </div>
-          </Link>
-        </div>
+            <span className="text-sm text-lightsubtext dark:text-darksubtext font-mono">
+              {experience.period}
+            </span>
+          </div>
+          <p className="text-sm text-lightsubtext dark:text-darksubtext leading-relaxed mb-4 max-w-xl">
+            {experience.description}
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {experience.skills.map((skill) => (
+              <span
+                key={skill}
+                className="text-xs px-2.5 py-1 rounded-full bg-surface dark:bg-surfacedark text-lightsubtext dark:text-darksubtext"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </Link>
       ))}
-      <Link to={"/about"}>
-        <p className="text-sm text-lightsubtext dark:text-darksubtext mt-4">
-          View All Experience ->
-        </p>
-      </Link>
     </div>
   );
 }
