@@ -46,7 +46,7 @@
           "**/*.ts?(x)"
         ],
         "rules": {
-          "max-len": "warn"
+          "max-len": "off"
         }
       }
     ]
