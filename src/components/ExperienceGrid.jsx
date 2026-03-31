@@ -16,7 +16,7 @@ const experienceList = [
     period: "Jun 2022 - Jan 2024",
     skills: ["Next.js", "React", "TypeScript", "AWS Lambda", "MongoDB", "Node.js", "Jest"],
     description:
-      "Built and maintained a data platform as part of a startup team of 8 developers using React, MongoDB, AWS Lambda, and TypeScript.",
+      "Led the V2 migration of a legacy React application to Next.js within an 8-person startup team, rebuilding the platform's architecture from the ground up. Developed a new design system built on Semantic UI to ensure consistency across the product, and introduced unit testing with Jest to establish a reliable testing baseline. Leveraged Next.js rendering strategies to optimise performance, resulting in faster load times, improved user flows, and a significant reduction in bugs post-launch.",
   },
   {
     company: "Raytheon UK",
@@ -24,7 +24,7 @@ const experienceList = [
     period: "Jan 2022 - Jun 2022",
     skills: ["React", "TypeScript", "Docker", "AWS", "Node.js", "Cypress"],
     description:
-      "Developed React applications using AWS, Docker, Node and Express. Creating applications that impacted peoples day to day lives.",
+      "Built internal tooling used business-wide to help managers identify and assign skilled team members to upcoming projects. The platform provided skill-based search and filtering alongside project history tracking, replacing a manual process and giving leadership a clearer, faster way to resource projects effectively.",
   },
   {
     company: "Gtech",
@@ -32,7 +32,7 @@ const experienceList = [
     period: "Dec 2020 - Jan 2022",
     skills: ["Magento 2", "PHP", "Node", "SCSS", "Git"],
     description:
-      "Migrated the company to Magento 2 and launched a separate international site as the solo frontend developer.",
+      "Sole frontend developer responsible for migrating Gtech's e-commerce platform from Magento 1 to Magento 2 and launching a separate international storefront for a leading UK cordless consumer goods brand. The international expansion directly increased conversions by opening the business to new global markets, with the full migration and launch delivered independently end-to-end.",
   },
   {
     company: "This is Union",
@@ -40,7 +40,7 @@ const experienceList = [
     period: "May 2020 - Dec 2020",
     skills: ["HTML", "SCSS", "jQuery", "WordPress", "PHP"],
     description:
-      "Built and maintained WordPress websites and custom themes for a range of agency clients.",
+      "Built custom WordPress themes from scratch for a diverse range of clients at a marketing agency undergoing its own rebrand. Worked across varied industries delivering tailored, brand-aligned web experiences — handling everything from initial build to ongoing maintenance for each client.",
   },
 ];
 
