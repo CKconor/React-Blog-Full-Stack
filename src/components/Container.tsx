@@ -1,6 +1,10 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-function Container({ children }) {
+interface ContainerProps {
+  children: ReactNode;
+}
+
+function Container({ children }: ContainerProps) {
   return (
     <div
       id="skip"

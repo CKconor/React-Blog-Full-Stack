@@ -1,30 +1,36 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import { Link } from "react-router-dom";
+import { Project } from "../types";
 
-const GET_BLOGS = gql`
-  query Blogs {
-    blogPostCollection {
+interface ProjectsData {
+  projectsCollection: {
+    items: Project[];
+  };
+}
+
+const GET_PROJECTS = gql`
+  query Projects {
+    projectsCollection {
       items {
-        blogTitle
+        projectTitle
         sys {
-          publishedAt
           id
         }
-        featureimage {
+        projectSlug
+        projectImage {
           title
           url
         }
-        blogContent
-        blogExcerpt
-        urlSlug
+        projectExcerpt
+        projectDetails
       }
     }
   }
 `;
 
-function Blogs() {
-  const { loading, error, data } = useQuery(GET_BLOGS);
+function Projects() {
+  const { loading, error, data } = useQuery<ProjectsData>(GET_PROJECTS);
 
   if (loading)
     return (
@@ -35,43 +41,45 @@ function Blogs() {
   if (error)
     return (
       <div className="pt-12 md:pt-20">
-        <span className="text-sm text-accentcolor">Error loading posts</span>
+        <span className="text-sm text-accentcolor">Error loading projects</span>
       </div>
     );
+
+  if (!data) return null;
 
   return (
     <div className="pt-12 md:pt-20">
       <span className="text-xs uppercase tracking-widest text-accentcolor mb-4 block font-medium opacity-0 animate-fade-up">
-        Writing
+        Portfolio
       </span>
       <h1 className="font-serif text-4xl md:text-6xl tracking-tight leading-[1.05] mb-4 opacity-0 animate-fade-up stagger-1">
-        Blog
+        Projects
       </h1>
       <p className="text-sm text-lightsubtext dark:text-darksubtext mb-14 max-w-md opacity-0 animate-fade-up stagger-2">
-        Thoughts on development, design, and things I find interesting.
+        A selection of work spanning web development, design, and creative exploration.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
-        {data.blogPostCollection.items.map((blog, index) => (
+        {data.projectsCollection.items.map((project, index) => (
           <Link
-            key={blog.sys.id}
-            to={blog.urlSlug}
-            state={{ blogData: blog }}
+            key={project.sys.id}
+            to={project.projectSlug}
+            state={{ projectData: project }}
             className={`group opacity-0 animate-fade-up stagger-${Math.min(index + 3, 8)}`}
           >
-            {blog.featureimage && (
+            {project.projectImage && (
               <div className="overflow-hidden rounded-sm mb-5">
                 <img
                   className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
-                  src={blog.featureimage.url}
-                  alt={blog.featureimage.title}
+                  src={project.projectImage.url}
+                  alt={project.projectImage.title}
                 />
               </div>
             )}
             <h3 className="text-base font-medium mb-2 group-hover:text-accentcolor transition-colors">
-              {blog.blogTitle}
+              {project.projectTitle}
             </h3>
             <p className="text-sm text-lightsubtext dark:text-darksubtext leading-relaxed line-clamp-2">
-              {blog.blogExcerpt}
+              {project.projectExcerpt}
             </p>
           </Link>
         ))}
@@ -80,4 +88,4 @@ function Blogs() {
   );
 }
 
-export default Blogs;
+export default Projects;

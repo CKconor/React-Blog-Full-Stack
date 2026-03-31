@@ -6,10 +6,15 @@ import remarkEmoji from "remark-emoji";
 import remarkGfm from "remark-gfm";
 import remarkFrontmatter from "remark-frontmatter";
 import Moment from "react-moment";
+import { BlogPost } from "../types";
+
+interface BlogLocationState {
+  blogData: BlogPost;
+}
 
 function BlogDetails() {
   const location = useLocation();
-  const { blogData } = location.state;
+  const { blogData } = location.state as BlogLocationState;
 
   return (
     <div className="pt-12 md:pt-20">

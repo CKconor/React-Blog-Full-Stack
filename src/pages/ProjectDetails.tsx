@@ -5,10 +5,15 @@ import CodeBlock from "../components/codeblock";
 import remarkEmoji from "remark-emoji";
 import remarkGfm from "remark-gfm";
 import remarkFrontmatter from "remark-frontmatter";
+import { Project } from "../types";
+
+interface ProjectLocationState {
+  projectData: Project;
+}
 
 export default function ProjectDetails() {
   const location = useLocation();
-  const { projectData } = location.state;
+  const { projectData } = location.state as ProjectLocationState;
 
   return (
     <div className="pt-12 md:pt-20">
