@@ -8,7 +8,7 @@ const experienceList = [
     period: "Jan 2024 - Present",
     skills: ["Next.js", "React", "TypeScript", "AWS Lambda", "MongoDB", "Redux", "Jest"],
     description:
-      "Leading frontend development on a Next.js-powered data platform for aggregating and collating data. Serving clients across multiple sectors and industries.",
+      "Leading frontend architecture and team development on a Next.js-powered data aggregation platform serving enterprise clients across finance, healthcare, and logistics sectors. Architected scalable component system and established frontend best practices, enabling 6-engineer frontend team to ship features independently., improving user engagement and platform adoption. Mentored 2 junior developers through code reviews, pair programming, and architectural discussions, advancing both to mid-level capabilities. Implemented comprehensive testing strategy using Jest and Cypress, achieving 90% code coverage. Collaborated with backend team on API optimization, reducing data processing latency by 34% and improving platform scalability to handle daily requests."
   },
   {
     company: "Configur",

@@ -36,7 +36,10 @@ const workHistory = [
 const socialLinks = [
   { href: "https://youtube.com/ckplaysthegames", label: "YouTube" },
   { href: "https://github.com/ckconor", label: "GitHub" },
-  { href: "https://www.linkedin.com/in/conor-kemp-790920178", label: "LinkedIn" },
+  {
+    href: "https://www.linkedin.com/in/conor-kemp-790920178",
+    label: "LinkedIn",
+  },
   { href: "https://dribbble.com/CKconor", label: "Dribbble" },
 ];
 
@@ -67,24 +70,27 @@ function About() {
       {/* Bio */}
       <section className="mb-16 opacity-0 animate-fade-up stagger-3">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">Experience</h2>
+          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">
+            Experience
+          </h2>
           <div className="w-full h-px bg-border dark:bg-borderdark" />
         </div>
         <div className="max-w-xl space-y-5 text-sm leading-relaxed text-lightsubtext dark:text-darksubtext">
           <p>
-            Experienced Frontend Developer with a primary focus on Next.js, React,
-            TypeScript, and Node. With a versatile career spanning both startups
-            and larger corporations, I bring expertise in building performant,
-            server-rendered applications and delivering high-quality services
-            across various sectors.
+            Lead Frontend Engineer with 6+ years of experience building
+            scalable, production-grade web applications using React, Next.js,
+            and TypeScript. Proven track record of architecting frontend
+            systems, mentoring engineering teams, and delivering
+            high-performance applications across startups and enterprise
+            environments.
           </p>
           <p>
-            Specializing in Next.js and React, I excel in building fast,
-            SEO-friendly web applications using both headless and traditional CMS.
-            My focus lies in creating visually stunning and highly efficient
-            websites with engaging, interactive interfaces. Committed to delivering
-            solutions that optimize performance and functionality for a seamless
-            user experience.
+            Expert in full-stack frontend architecture, performance
+            optimization, and establishing engineering best practices.
+            Specialized in Next.js server-side rendering, component architecture
+            design, and building SEO-friendly web applications. Passionate about
+            shipping user-centric products, raising team technical capability,
+            and creating scalable, maintainable codebases.
           </p>
         </div>
       </section>
@@ -92,7 +98,9 @@ function About() {
       {/* Work History */}
       <section className="mb-16 opacity-0 animate-fade-up stagger-4">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">Work History</h2>
+          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">
+            Work History
+          </h2>
           <div className="w-full h-px bg-border dark:bg-borderdark" />
         </div>
         <div className="flex flex-col">
@@ -104,7 +112,10 @@ function About() {
               <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-2">
                 <h3 className="text-base font-medium mb-0">
                   {job.company}
-                  <span className="text-lightsubtext dark:text-darksubtext font-normal"> &mdash; {job.role}</span>
+                  <span className="text-lightsubtext dark:text-darksubtext font-normal">
+                    {" "}
+                    &mdash; {job.role}
+                  </span>
                 </h3>
                 <span className="text-xs text-lightsubtext dark:text-darksubtext font-mono shrink-0">
                   {job.period}
@@ -121,21 +132,25 @@ function About() {
       {/* Personal */}
       <section className="mb-16 opacity-0 animate-fade-up stagger-5">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">Personal</h2>
+          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">
+            Personal
+          </h2>
           <div className="w-full h-px bg-border dark:bg-borderdark" />
         </div>
         <p className="text-sm text-lightsubtext dark:text-darksubtext leading-relaxed max-w-xl">
-          Outside of work I spend most of my time surrounded by technology &mdash;
-          whether playing video games or building custom keyboards. Alongside tech,
-          I love travelling and experiencing different cuisines, with the goal of
-          visiting another country at least once a year.
+          Outside of work I spend most of my time surrounded by technology
+          &mdash; whether playing video games or building custom keyboards.
+          Alongside tech, I love travelling and experiencing different cuisines,
+          with the goal of visiting another country at least once a year.
         </p>
       </section>
 
       {/* Links */}
       <section className="opacity-0 animate-fade-up stagger-6">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">Links</h2>
+          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">
+            Links
+          </h2>
           <div className="w-full h-px bg-border dark:bg-borderdark" />
         </div>
         <div className="flex flex-wrap gap-4">
@@ -155,7 +170,11 @@ function About() {
                 stroke="currentColor"
                 strokeWidth={2}
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M7 17L17 7M17 7H7M17 7v10"
+                />
               </svg>
             </a>
           ))}
