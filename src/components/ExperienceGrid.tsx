@@ -6,15 +6,31 @@ const experienceList = [
     company: "Configur",
     role: "Lead Frontend Developer",
     period: "Jan 2024 - Present",
-    skills: ["Next.js", "React", "TypeScript", "AWS Lambda", "MongoDB", "Redux", "Jest"],
+    skills: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "AWS Lambda",
+      "MongoDB",
+      "Redux",
+      "Jest",
+    ],
     description:
-      "Leading frontend architecture and team development on a Next.js-powered data aggregation platform serving enterprise clients across finance, healthcare, and logistics sectors. Architected scalable component system and established frontend best practices, enabling 6-engineer frontend team to ship features independently., improving user engagement and platform adoption. Mentored 2 junior developers through code reviews, pair programming, and architectural discussions, advancing both to mid-level capabilities. Implemented comprehensive testing strategy using Jest and Cypress, achieving 90% code coverage. Collaborated with backend team on API optimization, reducing data processing latency by 34% and improving platform scalability to handle daily requests."
+      "Leading frontend architecture and team development on a Next.js-powered data aggregation platform serving enterprise clients across finance, healthcare, and logistics sectors. Architected scalable component system and established frontend best practices, enabling 6-engineer frontend team to ship features independently., improving user engagement and platform adoption. Mentored 2 junior developers through code reviews, pair programming, and architectural discussions, advancing both to mid-level capabilities. Implemented comprehensive testing strategy using Jest and Cypress, achieving 90% code coverage. Collaborated with backend team on API optimization, reducing data processing latency by approximately 40% and improving platform scalability to handle daily requests.",
   },
   {
     company: "Configur",
     role: "Full Stack Developer",
     period: "Jun 2022 - Jan 2024",
-    skills: ["Next.js", "React", "TypeScript", "AWS Lambda", "MongoDB", "Node.js", "Jest"],
+    skills: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "AWS Lambda",
+      "MongoDB",
+      "Node.js",
+      "Jest",
+    ],
     description:
       "Led the V2 migration of a legacy React application to Next.js within an 8-person startup team, rebuilding the platform's architecture from the ground up. Developed a new design system built on Semantic UI to ensure consistency across the product, and introduced unit testing with Jest to establish a reliable testing baseline. Leveraged Next.js rendering strategies to optimise performance, resulting in faster load times, improved user flows, and a significant reduction in bugs post-launch.",
   },
