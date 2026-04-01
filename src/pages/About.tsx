@@ -138,10 +138,21 @@ function About() {
           <div className="w-full h-px bg-border dark:bg-borderdark" />
         </div>
         <p className="text-sm text-lightsubtext dark:text-darksubtext leading-relaxed max-w-xl">
-          Outside of work I spend most of my time surrounded by technology
-          &mdash; whether playing video games or building custom keyboards.
-          Alongside tech, I love travelling and experiencing different cuisines,
-          with the goal of visiting another country at least once a year.
+          Outside of work, I'm pretty much always surrounded by tech in some
+          form. I'm deeply into video games—everything from narrative-driven
+          single-player experiences to competitive multiplayer games where I can
+          lose track of time, I'm also a bit of a keyboard enthusiast, which
+          started as a practical hobby but has evolved into something I
+          genuinely enjoy tinkering with. Building and customizing mechanical
+          keyboards scratches a different itch—it's and allows me to have a more
+          hands on hobby.
+        </p>
+        <p className="text-sm text-lightsubtext dark:text-darksubtext leading-relaxed max-w-xl">
+          Travel is a big priority for me too. I've made it a goal to visit a
+          new country at least once a year, and it's genuinely one of the best
+          ways I've found to step outside my routine. Beyond the sightseeing,
+          what really draws me in is experiencing different food cultures. I
+          love seeking out local restaurants, street food, markets
         </p>
       </section>
 
