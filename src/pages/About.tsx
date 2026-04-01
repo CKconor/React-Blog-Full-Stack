@@ -147,12 +147,12 @@ function About() {
           keyboards scratches a different itch—it's and allows me to have a more
           hands on hobby.
         </p>
-        <p className="text-sm text-lightsubtext dark:text-darksubtext leading-relaxed max-w-xl">
+        <p className="text-sm text-lightsubtext dark:text-darksubtext leading-relaxed max-w-xl mt-2">
           Travel is a big priority for me too. I've made it a goal to visit a
           new country at least once a year, and it's genuinely one of the best
           ways I've found to step outside my routine. Beyond the sightseeing,
           what really draws me in is experiencing different food cultures. I
-          love seeking out local restaurants, street food, markets
+          love seeking out local restaurants, street food, markets.
         </p>
       </section>
 
