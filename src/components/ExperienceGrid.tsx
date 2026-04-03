@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import Link from 'next/link';
 
 const experienceList = [
   {
@@ -63,9 +62,9 @@ const experienceList = [
 function ExperienceGrid() {
   return (
     <div className="flex flex-col">
-      {experienceList.map((experience, index) => (
+      {experienceList.map((experience) => (
         <Link
-          to="/about"
+          href="/about"
           key={`${experience.company}-${experience.period}`}
           className="group block py-8 border-b border-border dark:border-borderdark last:border-b-0 transition-colors"
         >

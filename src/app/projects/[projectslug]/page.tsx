@@ -1,24 +1,28 @@
-import React from "react";
-import { useLocation, Link } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
-import CodeBlock from "../components/codeblock";
-import remarkEmoji from "remark-emoji";
-import remarkGfm from "remark-gfm";
-import remarkFrontmatter from "remark-frontmatter";
-import { Project } from "../types";
+export const dynamic = 'force-dynamic';
 
-interface ProjectLocationState {
-  projectData: Project;
-}
+import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
+import CodeBlock from '@/components/codeblock';
+import remarkEmoji from 'remark-emoji';
+import remarkGfm from 'remark-gfm';
+import remarkFrontmatter from 'remark-frontmatter';
+import { getProjectBySlug } from '@/lib/contentful';
+import { notFound } from 'next/navigation';
 
-export default function ProjectDetails() {
-  const location = useLocation();
-  const { projectData } = location.state as ProjectLocationState;
+type Props = {
+  params: Promise<{ projectslug: string }>;
+};
+
+export default async function ProjectDetails({ params }: Props) {
+  const { projectslug } = await params;
+  const project = await getProjectBySlug(projectslug);
+
+  if (!project) notFound();
 
   return (
     <div className="pt-12 md:pt-20">
       <Link
-        to="/projects"
+        href="/projects"
         className="inline-flex items-center gap-2 text-sm text-lightsubtext dark:text-darksubtext hover:text-accentcolor transition-colors mb-10"
       >
         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -27,18 +31,18 @@ export default function ProjectDetails() {
         Back to projects
       </Link>
 
-      {projectData.projectImage && (
+      {project.projectImage && (
         <div className="overflow-hidden rounded-sm mb-10 opacity-0 animate-fade-up">
           <img
             className="w-full max-w-2xl h-72 object-cover"
-            src={projectData.projectImage.url}
-            alt={projectData.projectImage.title}
+            src={project.projectImage.url}
+            alt={project.projectImage.title}
           />
         </div>
       )}
 
       <h1 className="font-serif text-3xl md:text-5xl tracking-tight leading-[1.1] mb-8 opacity-0 animate-fade-up stagger-1">
-        {projectData.projectTitle}
+        {project.projectTitle}
       </h1>
 
       <div className="opacity-0 animate-fade-up stagger-2">
@@ -47,7 +51,7 @@ export default function ProjectDetails() {
           components={CodeBlock}
           className="markdown text-darkmode dark:text-lightmode max-w-2xl text-[15px]"
         >
-          {projectData.projectDetails}
+          {project.projectDetails}
         </ReactMarkdown>
       </div>
     </div>

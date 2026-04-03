@@ -1,9 +1,9 @@
-import Portrait from "../assets/portrait.png";
-import Contact from "../components/Contact";
-import Skills from "../components/Skills";
-import ExperienceGrid from "../components/ExperienceGrid";
+import Portrait from '@/assets/portrait.png';
+import Contact from '@/components/Contact';
+import Skills from '@/components/Skills';
+import ExperienceGrid from '@/components/ExperienceGrid';
 
-function App() {
+export default function Home() {
   return (
     <div className="dark:bg-darkmode bg-lightmode">
       {/* Hero */}
@@ -17,12 +17,10 @@ function App() {
               Conor Kemp
             </h1>
             <p className="opacity-0 animate-fade-up stagger-2 mt-8 text-base text-lightsubtext dark:text-darksubtext leading-relaxed max-w-md">
-            Lead Frontend Engineer with 6+ years of experience building
-            scalable, production-grade web applications using React, Next.js,
-            and TypeScript. Proven track record of architecting frontend
-            systems, mentoring engineering teams, and delivering
-            high-performance applications across startups and enterprise
-            environments.
+              Lead Frontend Engineer with 6+ years of experience building scalable, production-grade
+              web applications using React, Next.js, and TypeScript. Proven track record of
+              architecting frontend systems, mentoring engineering teams, and delivering
+              high-performance applications across startups and enterprise environments.
             </p>
             <div className="opacity-0 animate-fade-up stagger-3 mt-8">
               <Contact />
@@ -30,7 +28,7 @@ function App() {
           </div>
           <div className="hidden lg:block opacity-0 animate-fade-in stagger-4 w-48 flex-shrink-0 ml-12">
             <img
-              src={Portrait}
+              src={Portrait.src}
               alt="Conor Kemp"
               className="w-full rounded-sm grayscale hover:grayscale-0 transition-all duration-500"
             />
@@ -58,5 +56,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

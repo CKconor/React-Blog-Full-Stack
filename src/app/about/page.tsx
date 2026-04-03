@@ -1,4 +1,4 @@
-import Portrait from "../assets/portrait.png";
+import Portrait from '@/assets/portrait.png';
 
 const workHistory = [
   {
@@ -43,7 +43,7 @@ const socialLinks = [
   { href: "https://dribbble.com/CKconor", label: "Dribbble" },
 ];
 
-function About() {
+export default function About() {
   return (
     <div className="pt-12 md:pt-20">
       <div className="flex flex-row items-start justify-between mb-16">
@@ -60,7 +60,7 @@ function About() {
         </div>
         <div className="hidden md:block w-40 flex-shrink-0 ml-12 opacity-0 animate-fade-in stagger-3">
           <img
-            src={Portrait}
+            src={Portrait.src}
             alt="Conor Kemp"
             className="w-full rounded-sm grayscale hover:grayscale-0 transition-all duration-500"
           />
@@ -194,5 +194,3 @@ function About() {
     </div>
   );
 }
-
-export default About;

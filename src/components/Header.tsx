@@ -1,32 +1,39 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navItems = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/projects", label: "Projects" },
-  { to: "/blog", label: "Blog" },
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/blog', label: 'Blog' },
 ];
 
 function Header() {
+  const pathname = usePathname();
+
   return (
     <header className="pt-8 pb-4 md:pt-12 md:pb-6">
       <nav className="flex items-center justify-between">
-        <NavLink
-          to="/"
+        <Link
+          href="/"
           className="font-serif text-2xl md:text-3xl tracking-tight text-darkmode dark:text-lightmode hover:opacity-70 transition-opacity"
         >
           CK
-        </NavLink>
+        </Link>
         <div className="flex items-center gap-8">
-          {navItems.map(({ to, label }) => (
-            <NavLink
-              key={to}
-              to={to}
-              className="nav-link text-sm tracking-wide uppercase text-lightsubtext dark:text-darksubtext hover:text-darkmode dark:hover:text-lightmode transition-colors"
+          {navItems.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`nav-link text-sm tracking-wide uppercase transition-colors ${
+                pathname === href
+                  ? 'active text-darkmode dark:text-lightmode'
+                  : 'text-lightsubtext dark:text-darksubtext hover:text-darkmode dark:hover:text-lightmode'
+              }`}
             >
               {label}
-            </NavLink>
+            </Link>
           ))}
         </div>
       </nav>
