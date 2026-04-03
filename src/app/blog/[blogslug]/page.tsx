@@ -1,25 +1,34 @@
-import React from "react";
-import { useLocation, Link } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
-import CodeBlock from "../components/codeblock";
-import remarkEmoji from "remark-emoji";
-import remarkGfm from "remark-gfm";
-import remarkFrontmatter from "remark-frontmatter";
-import Moment from "react-moment";
-import { BlogPost } from "../types";
+export const dynamic = 'force-dynamic';
 
-interface BlogLocationState {
-  blogData: BlogPost;
-}
+import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
+import CodeBlock from '@/components/codeblock';
+import remarkEmoji from 'remark-emoji';
+import remarkGfm from 'remark-gfm';
+import remarkFrontmatter from 'remark-frontmatter';
+import { getBlogBySlug } from '@/lib/contentful';
+import { notFound } from 'next/navigation';
 
-function BlogDetails() {
-  const location = useLocation();
-  const { blogData } = location.state as BlogLocationState;
+type Props = {
+  params: Promise<{ blogslug: string }>;
+};
+
+export default async function BlogDetails({ params }: Props) {
+  const { blogslug } = await params;
+  const blog = await getBlogBySlug(blogslug);
+
+  if (!blog) notFound();
+
+  const formattedDate = new Date(blog.sys.publishedAt).toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
 
   return (
     <div className="pt-12 md:pt-20">
       <Link
-        to="/blog"
+        href="/blog"
         className="inline-flex items-center gap-2 text-sm text-lightsubtext dark:text-darksubtext hover:text-accentcolor transition-colors mb-10"
       >
         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -28,24 +37,24 @@ function BlogDetails() {
         Back to blog
       </Link>
 
-      {blogData.featureimage && (
+      {blog.featureimage && (
         <div className="overflow-hidden rounded-sm mb-10 opacity-0 animate-fade-up">
           <img
             className="w-full max-w-2xl h-72 object-cover"
-            src={blogData.featureimage.url}
-            alt={blogData.featureimage.title}
+            src={blog.featureimage.url}
+            alt={blog.featureimage.title}
           />
         </div>
       )}
 
       <h1 className="font-serif text-3xl md:text-5xl tracking-tight leading-[1.1] mb-3 opacity-0 animate-fade-up stagger-1">
-        {blogData.blogTitle}
+        {blog.blogTitle}
       </h1>
 
       <div className="flex items-center gap-2 text-sm text-lightsubtext dark:text-darksubtext mb-10 opacity-0 animate-fade-up stagger-2">
         <span>Conor Kemp</span>
         <span className="text-border dark:text-borderdark">/</span>
-        <Moment format="MMMM D, YYYY" date={blogData.sys.publishedAt} />
+        <span>{formattedDate}</span>
       </div>
 
       <div className="opacity-0 animate-fade-up stagger-3">
@@ -54,11 +63,9 @@ function BlogDetails() {
           components={CodeBlock}
           className="markdown text-darkmode dark:text-lightmode max-w-2xl text-[15px]"
         >
-          {blogData.blogContent}
+          {blog.blogContent}
         </ReactMarkdown>
       </div>
     </div>
   );
 }
-
-export default BlogDetails;

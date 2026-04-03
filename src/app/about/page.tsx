@@ -1,4 +1,4 @@
-import Portrait from "../assets/portrait.png";
+import Portrait from '@/assets/portrait.png';
 
 const workHistory = [
   {
@@ -43,7 +43,7 @@ const socialLinks = [
   { href: "https://dribbble.com/CKconor", label: "Dribbble" },
 ];
 
-function About() {
+export default function About() {
   return (
     <div className="pt-12 md:pt-20">
       <div className="flex flex-row items-start justify-between mb-16">
@@ -60,7 +60,7 @@ function About() {
         </div>
         <div className="hidden md:block w-40 flex-shrink-0 ml-12 opacity-0 animate-fade-in stagger-3">
           <img
-            src={Portrait}
+            src={Portrait.src}
             alt="Conor Kemp"
             className="w-full rounded-sm grayscale hover:grayscale-0 transition-all duration-500"
           />
@@ -138,19 +138,19 @@ function About() {
           <div className="w-full h-px bg-border dark:bg-borderdark" />
         </div>
         <p className="text-sm text-lightsubtext dark:text-darksubtext leading-relaxed max-w-xl">
-          Outside of work, I'm pretty much always surrounded by tech in some
-          form. I'm deeply into video games—everything from narrative-driven
+          Outside of work, I&apos;m pretty much always surrounded by tech in some
+          form. I&apos;m deeply into video games—everything from narrative-driven
           single-player experiences to competitive multiplayer games where I can
-          lose track of time, I'm also a bit of a keyboard enthusiast, which
+          lose track of time, I&apos;m also a bit of a keyboard enthusiast, which
           started as a practical hobby but has evolved into something I
           genuinely enjoy tinkering with. Building and customizing mechanical
-          keyboards scratches a different itch—it's and allows me to have a more
+          keyboards scratches a different itch—it&apos;s and allows me to have a more
           hands on hobby.
         </p>
         <p className="text-sm text-lightsubtext dark:text-darksubtext leading-relaxed max-w-xl mt-2">
-          Travel is a big priority for me too. I've made it a goal to visit a
-          new country at least once a year, and it's one of the best
-          ways I've found to step outside my routine and away from tech. Beyond the sightseeing,
+          Travel is a big priority for me too. I&apos;ve made it a goal to visit a
+          new country at least once a year, and it&apos;s one of the best
+          ways I&apos;ve found to step outside my routine and away from tech. Beyond the sightseeing,
           what really draws me in is experiencing different food cultures. I
           love seeking out local restaurants, street food, markets.
         </p>
@@ -194,5 +194,3 @@ function About() {
     </div>
   );
 }
-
-export default About;

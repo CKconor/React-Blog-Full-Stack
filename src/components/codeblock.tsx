@@ -1,17 +1,17 @@
-import React, { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
+'use client';
+import React, { ComponentPropsWithoutRef, ReactNode } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-interface CodeComponentProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
-  inline?: boolean;
+interface CodeProps extends ComponentPropsWithoutRef<'code'> {
   node?: unknown;
   children?: ReactNode;
 }
 
 const CodeBlock = {
-  code({ node: _node, inline, className, children, ...props }: CodeComponentProps) {
+  code({ node: _node, className, children, ...props }: CodeProps) {
     const match = /language-(\w+)/.exec(className ?? "");
-    return !inline && match ? (
+    return match ? (
       <SyntaxHighlighter
         style={dracula}
         language={match[1]}

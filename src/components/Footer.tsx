@@ -1,5 +1,4 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import Link from 'next/link';
 
 const socialLinks = [
   { href: "https://github.com/ckconor", label: "GitHub" },
@@ -9,10 +8,10 @@ const socialLinks = [
 ];
 
 const navItems = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/projects", label: "Projects" },
-  { to: "/blog", label: "Blog" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/blog", label: "Blog" },
 ];
 
 function Footer() {
@@ -30,14 +29,14 @@ function Footer() {
             <span className="text-xs uppercase tracking-widest text-lightsubtext dark:text-darksubtext mb-1">
               Navigate
             </span>
-            {navItems.map(({ to, label }) => (
-              <NavLink
-                key={to}
-                to={to}
+            {navItems.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
                 className="text-sm text-lightsubtext dark:text-darksubtext hover:text-darkmode dark:hover:text-lightmode transition-colors"
               >
                 {label}
-              </NavLink>
+              </Link>
             ))}
           </div>
           <div className="flex flex-col gap-3">

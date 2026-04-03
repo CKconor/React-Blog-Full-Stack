@@ -1,51 +1,11 @@
-import React from "react";
-import { useQuery, gql } from "@apollo/client";
-import { Link } from "react-router-dom";
-import { Project } from "../types";
+export const dynamic = 'force-dynamic';
 
-interface ProjectsData {
-  projectsCollection: {
-    items: Project[];
-  };
-}
+import Link from 'next/link';
+import { getProjects } from '@/lib/contentful';
 
-const GET_PROJECTS = gql`
-  query Projects {
-    projectsCollection {
-      items {
-        projectTitle
-        sys {
-          id
-        }
-        projectSlug
-        projectImage {
-          title
-          url
-        }
-        projectExcerpt
-        projectDetails
-      }
-    }
-  }
-`;
-
-function Projects() {
-  const { loading, error, data } = useQuery<ProjectsData>(GET_PROJECTS);
-
-  if (loading)
-    return (
-      <div className="pt-12 md:pt-20">
-        <span className="text-sm text-lightsubtext dark:text-darksubtext">Loading...</span>
-      </div>
-    );
-  if (error)
-    return (
-      <div className="pt-12 md:pt-20">
-        <span className="text-sm text-accentcolor">Error loading projects</span>
-      </div>
-    );
-
-  if (!data) return null;
+export default async function Projects() {
+  const data = await getProjects();
+  const projects = data.projectsCollection.items;
 
   return (
     <div className="pt-12 md:pt-20">
@@ -59,11 +19,10 @@ function Projects() {
         A selection of work spanning web development, design, and creative exploration.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
-        {data.projectsCollection.items.map((project, index) => (
+        {projects.map((project, index) => (
           <Link
             key={project.sys.id}
-            to={project.projectSlug}
-            state={{ projectData: project }}
+            href={`/projects/${project.projectSlug}`}
             className={`group opacity-0 animate-fade-up stagger-${Math.min(index + 3, 8)}`}
           >
             {project.projectImage && (
@@ -87,5 +46,3 @@ function Projects() {
     </div>
   );
 }
-
-export default Projects;

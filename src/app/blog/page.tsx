@@ -1,52 +1,11 @@
-import React from "react";
-import { useQuery, gql } from "@apollo/client";
-import { Link } from "react-router-dom";
-import { BlogPost } from "../types";
+export const dynamic = 'force-dynamic';
 
-interface BlogsData {
-  blogPostCollection: {
-    items: BlogPost[];
-  };
-}
+import Link from 'next/link';
+import { getBlogs } from '@/lib/contentful';
 
-const GET_BLOGS = gql`
-  query Blogs {
-    blogPostCollection {
-      items {
-        blogTitle
-        sys {
-          publishedAt
-          id
-        }
-        featureimage {
-          title
-          url
-        }
-        blogContent
-        blogExcerpt
-        urlSlug
-      }
-    }
-  }
-`;
-
-function Blogs() {
-  const { loading, error, data } = useQuery<BlogsData>(GET_BLOGS);
-
-  if (loading)
-    return (
-      <div className="pt-12 md:pt-20">
-        <span className="text-sm text-lightsubtext dark:text-darksubtext">Loading...</span>
-      </div>
-    );
-  if (error)
-    return (
-      <div className="pt-12 md:pt-20">
-        <span className="text-sm text-accentcolor">Error loading posts</span>
-      </div>
-    );
-
-  if (!data) return null;
+export default async function Blogs() {
+  const data = await getBlogs();
+  const blogs = data.blogPostCollection.items;
 
   return (
     <div className="pt-12 md:pt-20">
@@ -60,11 +19,10 @@ function Blogs() {
         Thoughts on development, design, and things I find interesting.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
-        {data.blogPostCollection.items.map((blog, index) => (
+        {blogs.map((blog, index) => (
           <Link
             key={blog.sys.id}
-            to={blog.urlSlug}
-            state={{ blogData: blog }}
+            href={`/blog/${blog.urlSlug}`}
             className={`group opacity-0 animate-fade-up stagger-${Math.min(index + 3, 8)}`}
           >
             {blog.featureimage && (
@@ -88,5 +46,3 @@ function Blogs() {
     </div>
   );
 }
-
-export default Blogs;
