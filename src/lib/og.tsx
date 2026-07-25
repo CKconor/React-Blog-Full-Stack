@@ -25,17 +25,23 @@ export function truncate(text: string, maxLength: number): string {
 // browser to force it down the truetype/woff compatibility path.
 const LEGACY_UA = 'Mozilla/4.0';
 
-async function fetchFont(familyQuery: string, text: string): Promise<ArrayBuffer> {
-  const params = new URLSearchParams({ family: familyQuery, text });
+// Builds the `family` query value the way Google's CSS2 endpoint expects:
+// spaces become `+`, but `:`/`@` (weight axis syntax) must stay literal.
+// URLSearchParams would percent-encode all of these (+ -> %2B, : -> %3A,
+// @ -> %40), which Google rejects with a 400 "Invalid selector" — so this
+// param is built manually instead, and only the free-text `text` param
+// goes through encodeURIComponent.
+async function fetchFont(family: string, text: string): Promise<ArrayBuffer> {
+  const familyParam = family.replace(/ /g, '+');
   const css = await (
-    await fetch(`https://fonts.googleapis.com/css2?${params.toString()}`, {
+    await fetch(`https://fonts.googleapis.com/css2?family=${familyParam}&text=${encodeURIComponent(text)}`, {
       headers: { 'User-Agent': LEGACY_UA },
       next: { revalidate: 86400 },
     })
   ).text();
 
   const match = css.match(/src: url\(([^)]+)\) format\('(?:woff|opentype|truetype)'\)/);
-  if (!match) throw new Error(`Could not resolve font file for query: ${familyQuery}`);
+  if (!match) throw new Error(`Could not resolve font file for query: ${family} (response: ${css.slice(0, 200)})`);
 
   const response = await fetch(match[1], { next: { revalidate: 86400 } });
   return response.arrayBuffer();
@@ -43,7 +49,7 @@ async function fetchFont(familyQuery: string, text: string): Promise<ArrayBuffer
 
 async function loadSerifFont(text: string) {
   const serifChars = Array.from(new Set(text)).join('');
-  const data = await fetchFont('Instrument+Serif', serifChars);
+  const data = await fetchFont('Instrument Serif', serifChars);
   return { name: 'Instrument Serif', data, weight: 400 as const, style: 'normal' as const };
 }
 
@@ -52,8 +58,8 @@ export async function loadOgFonts(serifText: string, sansText: string) {
 
   const [serif, sans, sansMedium] = await Promise.all([
     loadSerifFont(serifText),
-    fetchFont('DM+Sans:wght@400', sansChars),
-    fetchFont('DM+Sans:wght@500', sansChars),
+    fetchFont('DM Sans:wght@400', sansChars),
+    fetchFont('DM Sans:wght@500', sansChars),
   ]);
 
   return [
