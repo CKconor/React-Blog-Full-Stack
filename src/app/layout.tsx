@@ -6,9 +6,32 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './globals.css';
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : undefined) ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+
+const title = 'Conor Kemp - Web Developer, UI Designer';
+const description = 'Conor Kemp - Fullstack Developer & UI Designer based in the UK';
+
 export const metadata: Metadata = {
-  title: 'Conor Kemp - Web Developer, UI Designer',
-  description: 'Conor Kemp - Fullstack Developer & UI Designer based in the UK',
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    siteName: 'Conor Kemp',
+    type: 'website',
+    locale: 'en_GB',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 };
 
 export const viewport: Viewport = {

@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import { BlogPost, Project } from '../types';
 
 const SPACE_ID = process.env.CONTENTFUL_SPACE_ID;
@@ -53,7 +54,7 @@ export async function getBlogs(): Promise<{ blogPostCollection: { items: BlogPos
   `);
 }
 
-export async function getBlogBySlug(slug: string): Promise<BlogPost | null> {
+export const getBlogBySlug = cache(async (slug: string): Promise<BlogPost | null> => {
   const data = await fetchContentful<{ blogPostCollection: { items: BlogPost[] } }>(
     `
     query BlogBySlug($slug: String!) {
@@ -65,7 +66,7 @@ export async function getBlogBySlug(slug: string): Promise<BlogPost | null> {
     { slug }
   );
   return data.blogPostCollection.items[0] ?? null;
-}
+});
 
 export async function getProjects(): Promise<{ projectsCollection: { items: Project[] } }> {
   return fetchContentful(`
@@ -77,7 +78,7 @@ export async function getProjects(): Promise<{ projectsCollection: { items: Proj
   `);
 }
 
-export async function getProjectBySlug(slug: string): Promise<Project | null> {
+export const getProjectBySlug = cache(async (slug: string): Promise<Project | null> => {
   const data = await fetchContentful<{ projectsCollection: { items: Project[] } }>(
     `
     query ProjectBySlug($slug: String!) {
@@ -89,4 +90,4 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
     { slug }
   );
   return data.projectsCollection.items[0] ?? null;
-}
+});

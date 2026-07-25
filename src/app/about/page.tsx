@@ -1,17 +1,28 @@
+import type { Metadata } from 'next';
 import Portrait from '@/assets/portrait.png';
+
+const title = 'About — Conor Kemp';
+const description = 'Lead Frontend Developer with 6+ years of experience building scalable, production-grade web applications using React, Next.js, and TypeScript.';
+
+export const metadata: Metadata = {
+  title,
+  description,
+  openGraph: { title, description },
+  twitter: { title, description },
+};
 
 const workHistory = [
   {
     period: "Jan 2024 - Present",
     company: "Configur",
     role: "Lead Frontend Developer",
-    tech: "Next.js, TypeScript, React, MongoDB, AWS Lambda, Node.js, Express, Jest, Serverless",
+    tech: "Next.js, TypeScript, React, TanStack Query, Zustand, Redux Toolkit, Tailwind CSS, Framer Motion, GSAP, OAuth, GitLab CI (Pipelines), Turborepo, Jest, Playwright, Claude Code, Claude Skills, MCP Servers, Subagents",
   },
   {
     period: "Jun 2022 - Jan 2024",
     company: "Configur",
     role: "Full Stack Developer",
-    tech: "Next.js, TypeScript, React, MongoDB, AWS Lambda, Node.js, Express, Jest, Serverless",
+    tech: "Next.js, TypeScript, React, TanStack Query, styled-components, MongoDB, AWS Lambda, Node.js, Jest",
   },
   {
     period: "Jan 2022 - Jun 2022",

@@ -1,7 +1,18 @@
 export const dynamic = 'force-dynamic';
 
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getBlogs } from '@/lib/contentful';
+
+const title = 'Blog — Conor Kemp';
+const description = 'Thoughts on development, design, and things I find interesting.';
+
+export const metadata: Metadata = {
+  title,
+  description,
+  openGraph: { title, description },
+  twitter: { title, description },
+};
 
 export default async function Blogs() {
   const data = await getBlogs();
