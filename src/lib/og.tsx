@@ -6,7 +6,7 @@ export const ogContentType = 'image/png';
 const BRAND_NAME = 'Conor Kemp';
 const BRAND_ROLE = 'Lead Frontend Engineer';
 
-const COLORS = {
+export const COLORS = {
   bg: '#0F0F0F',
   fg: '#FAFAF8',
   subtext: '#A8A8A4',
@@ -41,21 +41,30 @@ async function fetchFont(familyQuery: string, text: string): Promise<ArrayBuffer
   return response.arrayBuffer();
 }
 
+async function loadSerifFont(text: string) {
+  const serifChars = Array.from(new Set(text)).join('');
+  const data = await fetchFont('Instrument+Serif', serifChars);
+  return { name: 'Instrument Serif', data, weight: 400 as const, style: 'normal' as const };
+}
+
 export async function loadOgFonts(serifText: string, sansText: string) {
-  const serifChars = Array.from(new Set(serifText)).join('');
   const sansChars = Array.from(new Set(`${sansText}${BRAND_NAME}${BRAND_ROLE}`)).join('');
 
   const [serif, sans, sansMedium] = await Promise.all([
-    fetchFont('Instrument+Serif', serifChars),
+    loadSerifFont(serifText),
     fetchFont('DM+Sans:wght@400', sansChars),
     fetchFont('DM+Sans:wght@500', sansChars),
   ]);
 
   return [
-    { name: 'Instrument Serif', data: serif, weight: 400 as const, style: 'normal' as const },
+    serif,
     { name: 'DM Sans', data: sans, weight: 400 as const, style: 'normal' as const },
     { name: 'DM Sans', data: sansMedium, weight: 500 as const, style: 'normal' as const },
   ];
+}
+
+export async function loadMonogramFont(text: string) {
+  return [await loadSerifFont(text)];
 }
 
 type OgCardProps = {
