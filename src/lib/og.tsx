@@ -19,15 +19,22 @@ export function truncate(text: string, maxLength: number): string {
   return `${text.slice(0, maxLength - 1).trimEnd()}…`;
 }
 
+// Satori (used by ImageResponse) supports ttf/otf/woff but not woff2. Google's
+// CSS2 endpoint serves woff2 to any modern-looking user agent (which broke this
+// in prod, since the host's default fetch UA qualifies), so spoof an ancient
+// browser to force it down the truetype/woff compatibility path.
+const LEGACY_UA = 'Mozilla/4.0';
+
 async function fetchFont(familyQuery: string, text: string): Promise<ArrayBuffer> {
   const params = new URLSearchParams({ family: familyQuery, text });
   const css = await (
     await fetch(`https://fonts.googleapis.com/css2?${params.toString()}`, {
+      headers: { 'User-Agent': LEGACY_UA },
       next: { revalidate: 86400 },
     })
   ).text();
 
-  const match = css.match(/src: url\(([^)]+)\) format\('(?:opentype|truetype)'\)/);
+  const match = css.match(/src: url\(([^)]+)\) format\('(?:woff|opentype|truetype)'\)/);
   if (!match) throw new Error(`Could not resolve font file for query: ${familyQuery}`);
 
   const response = await fetch(match[1], { next: { revalidate: 86400 } });
