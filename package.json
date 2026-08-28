@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "cv:build": "node scripts/build-cv.mjs",
+    "cv:export": "node scripts/build-cv.mjs && node export-cv.js",
+    "cv:verify": "bash scripts/verify-cv.sh"
   },
   "dependencies": {
     "next": "^15.3.0",
