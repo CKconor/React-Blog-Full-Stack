@@ -4,6 +4,7 @@ import Script from 'next/script';
 import Container from '@/components/Container';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { profile } from '@/data/cv';
 import './globals.css';
 
 const siteUrl =
@@ -11,10 +12,12 @@ const siteUrl =
   (process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : undefined) ??
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://www.conorkemp.com');
 
-const title = 'Conor Kemp - Web Developer, UI Designer';
-const description = 'Conor Kemp - Fullstack Developer & UI Designer based in the UK';
+const title = `Conor Kemp - ${profile.title}`;
+const description =
+  'Conor Kemp - Lead Frontend Developer building React, Next.js and TypeScript applications ' +
+  'on serverless AWS backends. Based in Worcester, UK.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

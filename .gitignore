@@ -10,6 +10,14 @@
 
 # production
 /build
+/.next
+/out
+
+# build info
+tsconfig.tsbuildinfo
+
+# local planning notes (contains personal contact details — do not commit)
+/.scratch
 
 # misc
 .DS_Store

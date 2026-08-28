@@ -2,6 +2,7 @@ import Portrait from '@/assets/portrait.png';
 import Contact from '@/components/Contact';
 import Skills from '@/components/Skills';
 import ExperienceGrid from '@/components/ExperienceGrid';
+import { heroBlurb, profile } from '@/data/cv';
 
 export default function Home() {
   return (
@@ -11,16 +12,13 @@ export default function Home() {
         <div className="flex flex-row items-start justify-between">
           <div className="flex flex-col max-w-2xl">
             <span className="opacity-0 animate-fade-up text-xs uppercase tracking-widest text-accentcolor mb-6 font-medium">
-              Lead Frontend Engineer
+              {profile.title}
             </span>
             <h1 className="opacity-0 animate-fade-up stagger-1 font-serif text-5xl md:text-7xl tracking-tight leading-[1.05] mb-0">
               Conor Kemp
             </h1>
             <p className="opacity-0 animate-fade-up stagger-2 mt-8 text-base text-lightsubtext dark:text-darksubtext leading-relaxed max-w-md">
-              Lead Frontend Engineer with 6+ years of experience building scalable, production-grade
-              web applications using React, Next.js, and TypeScript. Proven track record of
-              architecting frontend systems, mentoring engineering teams, and delivering
-              high-performance applications across startups and enterprise environments.
+              {heroBlurb}
             </p>
             <div className="opacity-0 animate-fade-up stagger-3 mt-8">
               <Contact />
