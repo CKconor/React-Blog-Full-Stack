@@ -2,159 +2,388 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tokens. Components use roles, never hex values. Neutral: Radix sand. Accent: Radix orange,
+   step 11 tuned darker so it passes 4.5:1 on its own tint. */
+:root {
+  color-scheme: light dark;
+
+  --root-ink-1: #fdfdfc; --root-ink-2: #f9f9f8; --root-ink-3: #f1f0ef; --root-ink-4: #e9e8e6;
+  --root-ink-5: #e2e1de; --root-ink-6: #dad9d6; --root-ink-7: #cfceca; --root-ink-8: #bcbbb5;
+  --root-ink-9: #8d8d86; --root-ink-10: #82827c; --root-ink-11: #63635e; --root-ink-12: #21201c;
+  --ink-a3: #20100010; --ink-a4: #1f150019;
+
+  --ink-1: var(--root-ink-1); --ink-2: var(--root-ink-2); --ink-3: var(--root-ink-3);
+  --ink-4: var(--root-ink-4); --ink-5: var(--root-ink-5); --ink-6: var(--root-ink-6);
+  --ink-7: var(--root-ink-7); --ink-8: var(--root-ink-8); --ink-9: var(--root-ink-9);
+  --ink-10: var(--root-ink-10); --ink-11: var(--root-ink-11); --ink-12: var(--root-ink-12);
+
+  --accent-3: #ffefd6; --accent-4: #ffdfb5; --accent-6: #ffc182;
+  --accent-9: #f76b15; --accent-10: #ef5f00; --accent-11: #b84400;
+  --accent-contrast: #21201c; /* white on accent-9 only reaches 3:1 */
+
+  --surface-top: #ffffff;
+  --ground: var(--root-ink-2);
+  --panel: var(--surface-top);
+  --raised: var(--surface-top);
+  --control-fill: var(--surface-top);
+  --control-hover: var(--root-ink-2);
+  --line: var(--ink-6);
+  --hairline: 0.5px;
+  --focus-ring: var(--ink-10);
+
+  /* Accent primary: the brand opts in, so orange carries no status meaning on this site. */
+  --primary-bg: var(--accent-9);
+  --primary-fg: var(--accent-contrast);
+  --primary-hover: var(--accent-10);
+
+  --shadow-ink: 33 32 28;
+  --shadow-button: 0 1px 2px 0 rgb(var(--shadow-ink) / .12), 0 0 0 1px rgb(var(--shadow-ink) / .08);
+  --shadow-primary: 0 0 0 1px var(--ink-1);
+  --shadow-card: 0 0 0 1px rgb(var(--shadow-ink) / .07), 0 1px 2px 0 rgb(var(--shadow-ink) / .12),
+                 0 3px 4px -2px rgb(var(--shadow-ink) / .08);
+  --shadow-panel: 0 0 0 0.5px var(--ink-a4), 0 1px 2px 0 rgb(var(--shadow-ink) / .015),
+                  0 3px 4px -2px rgb(var(--shadow-ink) / .025);
+
+  --radius-control: 6px;
+  --radius-container: calc(var(--radius-control) + 2px);
+
+  --control-h: 36px;
+  --control-h-pill: 28px;
+  --badge-h: 20px;
+
+  --font-weight-ui: 500;
+  --text-badge: 12px;   --leading-badge: 20px;
+  --text-body: 13px;    --leading-body: 20px;
+  --text-prose: 15px;   --leading-prose: 24px;
+  --text-title: 16px;   --leading-title: 24px;
+  --text-section: 20px; --leading-section: 28px;
+  --text-display: 32px; --leading-display: 40px;
+  --tracking-label: -0.01em;
+  --tracking-display: -0.02em;
+
+  --dur-hover: 150ms;
+  --dur-section: 300ms;
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+}
+
+/* Phone: values only. */
+@media screen and (width < 48rem) {
+  :root {
+    --control-h: 44px;
+    --badge-h: 22px;
+    --text-badge: 14px;
+    --text-body: 15px; --leading-body: 24px;
+  }
+}
+@media (pointer: coarse) {
+  :root { --control-h-pill: 36px; }
+}
+
+/* Dark: colour and shadow only, never sizes. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --root-ink-1: #111110; --root-ink-2: #191918; --root-ink-3: #222221; --root-ink-4: #2a2a28;
+    --root-ink-5: #31312e; --root-ink-6: #3b3a37; --root-ink-7: #494844; --root-ink-8: #62605b;
+    --root-ink-9: #6f6d66; --root-ink-10: #7c7b74; --root-ink-11: #b5b3ad; --root-ink-12: #eeeeec;
+    --ink-a3: #f6f6f513; --ink-a4: #fefef31b;
+
+    --accent-3: #331e0b; --accent-4: #462100; --accent-6: #66350c;
+    --accent-9: #f76b15; --accent-10: #ff801f; --accent-11: #ffa057;
+
+    --ground: #080807;
+    --panel: var(--root-ink-1);
+    --raised: var(--root-ink-2);
+    --line: var(--ink-5);
+
+    --shadow-primary: 0 0 0 0.5px var(--primary-bg), 0 1px 2px 0 rgb(0 0 0 / .5);
+    --shadow-card: 0 0 0 0.5px var(--root-ink-6), 0 1px 2px 0 rgb(0 0 0 / .5), 0 3px 4px -2px rgb(0 0 0 / .4);
+    --shadow-panel: 0 0 0 0.5px var(--ink-a3), 0 1px 2px 0 rgb(0 0 0 / .5), 0 3px 4px -2px rgb(0 0 0 / .4);
+  }
+
+  /* A control sits two steps above its ground, with an outline three steps above its fill. */
+  .surface-panel {
+    --control-fill: var(--root-ink-3);
+    --control-hover: var(--root-ink-4);
+    --shadow-button: 0 0 0 0.5px var(--root-ink-6), 0 1px 2px 0 rgb(0 0 0 / .5);
+  }
+  .card {
+    --control-fill: var(--root-ink-4);
+    --control-hover: var(--root-ink-5);
+    --shadow-button: 0 0 0 0.5px var(--root-ink-7), 0 1px 2px 0 rgb(0 0 0 / .5);
+  }
+}
+
+/* Light: the top surface is pure white, and the primary's ring takes the surface colour. */
+@media (prefers-color-scheme: light) {
+  .surface-panel, .card {
+    --ink-1: var(--surface-top);
+    --line: var(--ink-6);
+    --shadow-primary: 0 0 0 1px var(--ink-1);
+  }
+}
+
 @layer base {
   html {
     font-family: "DM Sans", system-ui, sans-serif;
-    line-height: 1.7;
-    letter-spacing: -0.01em;
+    font-weight: var(--font-weight-ui);
+    font-size-adjust: 0.546; /* Inter's x-height, so every face matches the type scale */
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply text-body text-ink-12;
+    background: var(--ground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1 {
-    @apply font-serif text-4xl md:text-6xl font-normal tracking-tight leading-[1.1] mb-6 mt-0;
+    @apply font-serif text-display;
+    letter-spacing: var(--tracking-display);
   }
   h2 {
-    @apply font-serif text-3xl md:text-4xl font-normal tracking-tight leading-[1.2] mb-4;
+    @apply font-serif text-section;
   }
   h3 {
-    @apply font-sans text-lg md:text-xl font-medium mb-2;
+    @apply text-title;
+  }
+  code {
+    font-family: "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--accent-4);
   }
 }
 
-body {
-  margin: 0;
-  @apply dark:bg-darkmode dark:text-lightmode bg-lightmode text-darkmode;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
-}
-
-/* Navigation active state */
-@media (prefers-color-scheme: dark) {
-  .active {
-    color: #FAFAF8;
+@layer components {
+  /* Page body, floating 8px off the window. Edge to edge on a phone. */
+  .surface-panel {
+    @apply shadow-panel rounded-container;
+    background: var(--panel);
+    margin: 8px;
+    min-height: calc(100dvh - 16px);
   }
-  .active::after {
-    transform: scaleX(1);
+  @media screen and (width < 48rem) {
+    .surface-panel {
+      border-radius: 0;
+      margin: 0;
+      min-height: 100dvh;
+    }
+  }
+
+  .card {
+    @apply shadow-card rounded-container;
+    background: var(--raised);
+  }
+
+  .hairline-t {
+    border-top: var(--hairline) solid var(--line);
+  }
+
+  /* Controls answer a press with a squeeze. */
+  .pressable,
+  .btn-primary,
+  .nav-item,
+  .pill {
+    touch-action: manipulation;
+    transition-property: transform, background-color, color;
+    transition-duration: var(--dur-hover);
+    transition-timing-function: var(--ease-out);
+  }
+  .pressable:active,
+  .btn-primary:active,
+  .nav-item:active,
+  .pill:active {
+    transform: scale(.97);
+  }
+  .card.pressable:active {
+    transform: scale(.99);
+  }
+  .btn-primary,
+  .nav-item,
+  .pill {
+    -webkit-touch-callout: none;
+    user-select: none;
+    letter-spacing: var(--tracking-label);
+  }
+
+  .btn-primary {
+    @apply shadow-primary rounded-control text-body inline-flex items-center justify-center px-3.5 hover:bg-[color:var(--primary-hover)];
+    background: var(--primary-bg);
+    color: var(--primary-fg);
+    height: var(--control-h);
+  }
+
+  .nav-item {
+    @apply rounded-control text-body text-ink-11 inline-flex items-center px-1.5 md:px-2.5 hover:bg-ink-2 hover:text-ink-12;
+    height: var(--control-h);
+  }
+  .nav-item[aria-current='page'] {
+    @apply bg-ink-3 text-ink-12;
+  }
+
+  /* Round pill: a tool that belongs to the content. */
+  .pill {
+    @apply shadow-button text-body text-ink-12 relative inline-flex items-center gap-1 rounded-full px-3 hover:bg-[color:var(--control-hover)];
+    background: var(--control-fill);
+    height: var(--control-h-pill);
+  }
+  @media (pointer: coarse) {
+    .pill::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: max(100%, 44px);
+      height: 44px;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  /* Neutral badge: no hue to tint with, so it wears the control's fill, edge and drop. */
+  .badge {
+    @apply shadow-button text-badge text-ink-11 inline-flex items-center whitespace-nowrap rounded-full px-2;
+    background: var(--control-fill);
+    height: var(--badge-h);
+  }
+
+  .link-accent,
+  .markdown a {
+    @apply hover:decoration-current;
+    color: var(--accent-11);
+    text-decoration-line: underline;
+    text-decoration-color: var(--accent-6);
+    text-underline-offset: 3px;
+    transition: text-decoration-color var(--dur-hover) var(--ease-out);
+  }
+
+  /* Long-form text. Reading wants more room than the 13px control text. */
+  .markdown {
+    @apply text-prose text-ink-12 max-w-2xl;
+  }
+  .markdown > * + * {
+    margin-top: 16px;
+  }
+  .markdown h2,
+  .markdown h3 {
+    margin-top: 32px;
+  }
+  .markdown img {
+    @apply rounded-container;
+  }
+  .markdown blockquote {
+    @apply text-ink-11;
+    border-left: 2px solid var(--accent-9);
+    padding-left: 16px;
+  }
+  .markdown ul,
+  .markdown ol {
+    padding-left: 20px;
+  }
+  .markdown ul {
+    list-style: disc;
+  }
+  .markdown ol {
+    list-style: decimal;
+  }
+  .markdown li {
+    margin-top: 4px;
+  }
+  .markdown li::marker {
+    color: var(--accent-9);
+  }
+  .markdown code {
+    @apply rounded-control bg-ink-3;
+    font-size: .9em;
+    padding: 2px 4px;
+  }
+
+  .code-block {
+    @apply rounded-container text-body;
+    background: var(--ink-2);
+    box-shadow: 0 0 0 var(--hairline) var(--line);
+    overflow-x: auto;
+    padding: 16px;
+  }
+  .markdown .code-block code {
+    background: none;
+    font-size: inherit;
+    padding: 0;
+    white-space: pre;
+  }
+  .code-block .token.comment,
+  .code-block .token.prolog,
+  .code-block .token.doctype,
+  .code-block .token.string,
+  .code-block .token.attr-value,
+  .code-block .token.punctuation {
+    color: var(--ink-11);
+  }
+  .code-block .token.keyword,
+  .code-block .token.tag,
+  .code-block .token.boolean,
+  .code-block .token.number,
+  .code-block .token.important {
+    color: var(--accent-11);
   }
 }
-@media (prefers-color-scheme: light) {
-  .active {
-    color: #0F0F0F;
+
+/* The same quick fade-up on every page. */
+@keyframes enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes enter-reduced {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.enter {
+  animation: enter var(--dur-section) var(--ease-out) both;
+}
+.stagger-1 { animation-delay: 30ms; }
+.stagger-2 { animation-delay: 60ms; }
+.stagger-3 { animation-delay: 90ms; }
+.stagger-4 { animation-delay: 120ms; }
+.stagger-5 { animation-delay: 150ms; }
+.stagger-6 { animation-delay: 180ms; }
+.stagger-7 { animation-delay: 210ms; }
+.stagger-8 { animation-delay: 240ms; }
+
+/* Reduced motion: travel and scale become a short crossfade. */
+@media (prefers-reduced-motion: reduce) {
+  .enter {
+    animation-name: enter-reduced;
+    animation-duration: 200ms;
   }
-  .active::after {
-    transform: scaleX(1);
+  .pressable:active,
+  .btn-primary:active,
+  .nav-item:active,
+  .pill:active,
+  .card.pressable:active {
+    transform: none;
   }
 }
 
-/* Nav link underline animation */
-.nav-link {
-  position: relative;
+/* Scrollbar: desktop only. */
+@media (pointer: fine) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--root-ink-6);
+    background-clip: padding-box;
+    border: 1px solid transparent;
+    border-radius: 999px;
+  }
 }
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-.nav-link:hover::after {
-  transform: scaleX(1);
-}
-
-a {
-  cursor: pointer;
-}
-
-li {
-  margin-top: 4px;
-  margin-bottom: 4px;
-  list-style: none;
-}
-
-/* Markdown content styles */
-.markdown p,
-.markdown ol {
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
-}
-
-.markdown img {
-  margin-bottom: 1.5rem;
-  border-radius: 4px;
-}
-
-.markdown blockquote {
-  padding-left: 1.5rem;
-  margin: 2rem 0;
-  font-style: italic;
-  @apply border-l-2 border-accentcolor text-lightsubtext dark:text-darksubtext;
-}
-
-.markdown a {
-  color: #C8553D;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: opacity 0.2s;
-}
-.markdown a:hover {
-  opacity: 0.7;
-}
-
-.markdown ul {
-  margin-bottom: 1.5rem;
-  padding-left: 1.5rem;
-}
-.markdown ul li {
-  list-style: disc;
-}
-
-.markdown h2 {
-  margin-top: 2.5rem;
-}
-
-.markdown h3 {
-  margin-top: 2rem;
-}
-
-/* Staggered fade-up animation delays */
-.stagger-1 { animation-delay: 0.05s; }
-.stagger-2 { animation-delay: 0.1s; }
-.stagger-3 { animation-delay: 0.15s; }
-.stagger-4 { animation-delay: 0.2s; }
-.stagger-5 { animation-delay: 0.25s; }
-.stagger-6 { animation-delay: 0.3s; }
-.stagger-7 { animation-delay: 0.35s; }
-.stagger-8 { animation-delay: 0.4s; }
-
-/* Divider line */
-.divider {
-  @apply border-t border-border dark:border-borderdark;
-}
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #C8553D40;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #C8553D80;
-}
-
-/* Selection color */
-::selection {
-  background: #C8553D30;
-  color: inherit;
+@media (pointer: coarse) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }

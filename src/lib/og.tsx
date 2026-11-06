@@ -10,7 +10,7 @@ export const COLORS = {
   bg: '#0F0F0F',
   fg: '#FAFAF8',
   subtext: '#A8A8A4',
-  accent: '#C8553D',
+  accent: '#F76B15',
   border: '#2A2A2A',
 };
 

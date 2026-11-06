@@ -38,7 +38,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#0F0F0F',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f9f9f8' },
+    { media: '(prefers-color-scheme: dark)', color: '#080807' },
+  ],
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -53,13 +56,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
-        <div className="dark:bg-darkmode bg-lightmode">
-          <Container>
-            <Header />
-            {children}
-            <Footer />
-          </Container>
-        </div>
+        <Container>
+          <Header />
+          {children}
+          <Footer />
+        </Container>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1HQ13DP4SV"
           strategy="afterInteractive"

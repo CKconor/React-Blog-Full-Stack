@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
-import Portrait from '@/assets/portrait.png';
-import { profile, summary, roles, interests } from '@/data/cv';
+import ExperienceGrid from '@/components/ExperienceGrid';
+import PageIntro from '@/components/PageIntro';
+import Section from '@/components/Section';
+import { profile, summary, interests } from '@/data/cv';
+import { socialLinks } from '@/data/site';
 
 const title = 'About — Conor Kemp';
 const description = summary;
@@ -12,140 +15,42 @@ export const metadata: Metadata = {
   twitter: { title, description },
 };
 
-const socialLinks = [
-  { href: "https://youtube.com/ckplaysthegames", label: "YouTube" },
-  { href: "https://github.com/ckconor", label: "GitHub" },
-  {
-    href: "https://www.linkedin.com/in/conor-kemp-790920178",
-    label: "LinkedIn",
-  },
-  { href: "https://dribbble.com/CKconor", label: "Dribbble" },
-];
-
 export default function About() {
   return (
-    <div className="pt-12 md:pt-20">
-      <div className="flex flex-row items-start justify-between mb-16">
-        <div className="max-w-xl">
-          <span className="text-xs uppercase tracking-widest text-accentcolor mb-4 block font-medium opacity-0 animate-fade-up">
-            About
-          </span>
-          <h1 className="font-serif text-4xl md:text-6xl tracking-tight leading-[1.05] opacity-0 animate-fade-up stagger-1">
-            Conor Kemp
-          </h1>
-          <p className="text-lg text-lightsubtext dark:text-darksubtext mt-2 opacity-0 animate-fade-up stagger-2">
-            {profile.title}
-          </p>
-        </div>
-        <div className="hidden md:block w-40 flex-shrink-0 ml-12 opacity-0 animate-fade-in stagger-3">
-          <img
-            src={Portrait.src}
-            alt="Conor Kemp"
-            className="w-full rounded-sm grayscale hover:grayscale-0 transition-all duration-500"
-          />
-        </div>
-      </div>
+    <>
+      <PageIntro title={profile.name} lead={profile.title} showPortrait />
 
-      {/* Bio */}
-      <section className="mb-16 opacity-0 animate-fade-up stagger-3">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">
-            Experience
-          </h2>
-          <div className="w-full h-px bg-border dark:bg-borderdark" />
-        </div>
-        <div className="max-w-xl space-y-5 text-sm leading-relaxed text-lightsubtext dark:text-darksubtext">
-          <p>{summary}</p>
-        </div>
-      </section>
+      <Section title="Experience" stagger={3}>
+        <p className="max-w-xl text-ink-11">{summary}</p>
+      </Section>
 
-      {/* Work History */}
-      <section className="mb-16 opacity-0 animate-fade-up stagger-4">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">
-            Work History
-          </h2>
-          <div className="w-full h-px bg-border dark:bg-borderdark" />
-        </div>
-        <div className="flex flex-col">
-          {roles.map((role) => (
-            <div
-              key={`${role.company}-${role.period}`}
-              className="py-6 border-b border-border dark:border-borderdark last:border-b-0"
-            >
-              <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-2">
-                <h3 className="text-base font-medium mb-0">
-                  {role.company}
-                  <span className="text-lightsubtext dark:text-darksubtext font-normal">
-                    {" "}
-                    &mdash; {role.title}
-                  </span>
-                </h3>
-                <span className="text-xs text-lightsubtext dark:text-darksubtext font-mono shrink-0">
-                  {role.period}
-                </span>
-              </div>
-              <ul className="text-sm text-lightsubtext dark:text-darksubtext leading-relaxed max-w-xl list-disc pl-5 space-y-1.5 mb-3 marker:text-accentcolor">
-                {role.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
-              <p className="text-xs text-lightsubtext dark:text-darksubtext">
-                {role.tech.join(', ')}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <Section title="Work history" stagger={4}>
+        <ExperienceGrid />
+      </Section>
 
-      {/* Personal */}
-      <section className="mb-16 opacity-0 animate-fade-up stagger-5">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">
-            Personal
-          </h2>
-          <div className="w-full h-px bg-border dark:bg-borderdark" />
-        </div>
-        <p className="text-sm text-lightsubtext dark:text-darksubtext leading-relaxed max-w-xl">
-          {interests}
-        </p>
-      </section>
+      <Section title="Personal" stagger={5}>
+        <p className="max-w-xl text-ink-11">{interests}</p>
+      </Section>
 
-      {/* Links */}
-      <section className="opacity-0 animate-fade-up stagger-6">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="font-serif text-2xl md:text-3xl mb-0 whitespace-nowrap">
-            Links
-          </h2>
-          <div className="w-full h-px bg-border dark:bg-borderdark" />
-        </div>
-        <div className="flex flex-wrap gap-4">
+      <Section title="Links" stagger={6}>
+        <div className="flex flex-wrap gap-2">
           {socialLinks.map(({ href, label }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 text-sm px-4 py-2.5 rounded-full border border-border dark:border-borderdark text-lightsubtext dark:text-darksubtext hover:border-accentcolor hover:text-accentcolor transition-colors"
-            >
+            <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="pill">
               {label}
               <svg
-                className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200"
+                className="w-3.5 h-3.5 text-ink-10"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                strokeWidth={2}
+                strokeWidth={2.5}
+                aria-hidden
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M7 17L17 7M17 7H7M17 7v10"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
               </svg>
             </a>
           ))}
         </div>
-      </section>
-    </div>
+      </Section>
+    </>
   );
 }

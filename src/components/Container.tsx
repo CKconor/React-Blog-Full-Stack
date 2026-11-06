@@ -1,16 +1,11 @@
-import React, { ReactNode } from "react";
+import type { ReactNode } from 'react';
 
-interface ContainerProps {
-  children: ReactNode;
-}
-
-function Container({ children }: ContainerProps) {
+function Container({ children }: { children: ReactNode }) {
   return (
-    <div
-      id="skip"
-      className="flex flex-col justify-center max-w-3xl mx-auto pb-24 px-6 md:px-8"
-    >
-      {children}
+    <div className="surface-panel">
+      <div id="skip" className="box-content max-w-read mx-auto px-5 md:px-8 pb-8">
+        {children}
+      </div>
     </div>
   );
 }

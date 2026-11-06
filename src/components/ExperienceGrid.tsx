@@ -1,45 +1,51 @@
 import Link from 'next/link';
-import { roles } from '@/data/cv';
+import { roles, type Role } from '@/data/cv';
 
-function ExperienceGrid() {
+function RoleBody({ role, linked }: { role: Role; linked: boolean }) {
   return (
-    <div className="flex flex-col">
-      {roles.map((role) => (
-        <Link
-          href="/about"
-          key={`${role.company}-${role.period}`}
-          className="group block py-8 border-b border-border dark:border-borderdark last:border-b-0 transition-colors"
-        >
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
-            <div>
-              <h3 className="text-lg font-medium mb-0 group-hover:text-accentcolor transition-colors">
-                {role.company}
-              </h3>
-              <span className="text-sm text-lightsubtext dark:text-darksubtext">
-                {role.title}
-              </span>
-            </div>
-            <span className="text-sm text-lightsubtext dark:text-darksubtext font-mono">
-              {role.period}
-            </span>
+    <>
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-1 md:gap-4 mb-3">
+        <div>
+          <h3
+            className={linked ? 'transition-colors duration-150 group-hover:text-accent-11' : undefined}
+          >
+            {role.company}
+          </h3>
+          <span className="text-ink-11">{role.title}</span>
+        </div>
+        <span className="text-ink-11 tabular-nums md:shrink-0">{role.period}</span>
+      </div>
+      <ul className="text-ink-11 max-w-2xl list-disc pl-5 space-y-1.5 mb-4 marker:text-accent-9">
+        {role.bullets.map((bullet) => (
+          <li key={bullet}>{bullet}</li>
+        ))}
+      </ul>
+      <div className="flex flex-wrap gap-2">
+        {role.tech.map((tech) => (
+          <span key={tech} className="badge">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </>
+  );
+}
+
+function ExperienceGrid({ linkToAbout = false }: { linkToAbout?: boolean }) {
+  return (
+    <div className="flex flex-col gap-3">
+      {roles.map((role) => {
+        const key = `${role.company}-${role.period}`;
+        return linkToAbout ? (
+          <Link href="/about" key={key} className="card pressable group block p-4 md:p-5">
+            <RoleBody role={role} linked />
+          </Link>
+        ) : (
+          <div key={key} className="card p-4 md:p-5">
+            <RoleBody role={role} linked={false} />
           </div>
-          <ul className="text-sm text-lightsubtext dark:text-darksubtext leading-relaxed mb-4 max-w-xl list-disc pl-5 space-y-1.5 marker:text-accentcolor">
-            {role.bullets.map((bullet) => (
-              <li key={bullet}>{bullet}</li>
-            ))}
-          </ul>
-          <div className="flex flex-wrap gap-1.5">
-            {role.tech.map((tech) => (
-              <span
-                key={tech}
-                className="text-xs px-2.5 py-1 rounded-full bg-surface dark:bg-surfacedark text-lightsubtext dark:text-darksubtext"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </Link>
-      ))}
+        );
+      })}
     </div>
   );
 }

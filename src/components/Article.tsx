@@ -1,0 +1,49 @@
+import Link from 'next/link';
+import type { ReactNode } from 'react';
+import Markdown from '@/components/Markdown';
+
+type ArticleProps = {
+  backHref: string;
+  backLabel: string;
+  title: string;
+  image?: { url: string; title: string } | null;
+  meta?: ReactNode;
+  content: string;
+};
+
+function Article({ backHref, backLabel, title, image, meta, content }: ArticleProps) {
+  return (
+    <article className="pt-8">
+      <Link href={backHref} className="pill mb-8">
+        <svg
+          className="w-3.5 h-3.5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2.5}
+          aria-hidden
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+        </svg>
+        {backLabel}
+      </Link>
+
+      {image && (
+        <img
+          className="enter card w-full max-w-2xl h-72 object-cover mb-8"
+          src={image.url}
+          alt={image.title}
+        />
+      )}
+
+      <h1 className="enter stagger-1 max-w-2xl">{title}</h1>
+      {meta && <div className="enter stagger-2 text-ink-11 mt-1.5">{meta}</div>}
+
+      <div className="enter stagger-3 mt-8">
+        <Markdown>{content}</Markdown>
+      </div>
+    </article>
+  );
+}
+
+export default Article;

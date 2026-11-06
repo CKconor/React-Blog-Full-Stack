@@ -1,20 +1,17 @@
-import React from "react";
 import { skillCategories } from '@/data/cv';
 
 function Skills() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-      {skillCategories.map((category) => (
-        <div key={category.title}>
-          <h3 className="text-xs uppercase tracking-widest text-lightsubtext dark:text-darksubtext mb-5 font-medium">
-            {category.title}
-          </h3>
+    <div className="card">
+      {skillCategories.map((category, index) => (
+        <div
+          key={category.title}
+          className={`flex flex-col md:flex-row gap-3 md:gap-4 p-4 ${index > 0 ? 'hairline-t' : ''}`}
+        >
+          <h3 className="text-body md:w-40 md:shrink-0">{category.title}</h3>
           <div className="flex flex-wrap gap-2">
             {category.skills.map((skill) => (
-              <span
-                key={skill}
-                className="text-sm px-3 py-1.5 rounded-full border border-border dark:border-borderdark text-lightsubtext dark:text-darksubtext hover:border-accentcolor hover:text-accentcolor transition-colors cursor-default whitespace-nowrap"
-              >
+              <span key={skill} className="badge">
                 {skill}
               </span>
             ))}
