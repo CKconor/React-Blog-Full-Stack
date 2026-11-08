@@ -1,6 +1,18 @@
-'use client';
 import React, { ComponentPropsWithoutRef, ReactNode } from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import bash from "react-syntax-highlighter/dist/esm/languages/prism/bash";
+import css from "react-syntax-highlighter/dist/esm/languages/prism/css";
+import javascript from "react-syntax-highlighter/dist/esm/languages/prism/javascript";
+import json from "react-syntax-highlighter/dist/esm/languages/prism/json";
+import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
+import markup from "react-syntax-highlighter/dist/esm/languages/prism/markup";
+import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
+import typescript from "react-syntax-highlighter/dist/esm/languages/prism/typescript";
+
+const languages = { bash, css, javascript, json, jsx, markup, tsx, typescript };
+for (const [name, grammar] of Object.entries(languages)) {
+  SyntaxHighlighter.registerLanguage(name, grammar);
+}
 
 interface CodeProps extends ComponentPropsWithoutRef<'code'> {
   node?: unknown;

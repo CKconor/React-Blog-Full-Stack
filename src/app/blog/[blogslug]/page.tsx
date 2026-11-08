@@ -1,13 +1,18 @@
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 import type { Metadata } from 'next';
 import Article from '@/components/Article';
-import { getBlogBySlug } from '@/lib/contentful';
+import { getBlogBySlug, getBlogs } from '@/lib/contentful';
 import { notFound } from 'next/navigation';
 
 type Props = {
   params: Promise<{ blogslug: string }>;
 };
+
+export async function generateStaticParams() {
+  const data = await getBlogs();
+  return data.blogPostCollection.items.map((blog) => ({ blogslug: blog.urlSlug }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { blogslug } = await params;

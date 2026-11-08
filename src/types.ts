@@ -8,24 +8,30 @@ export interface BlogSys {
   id: string;
 }
 
-export interface BlogPost {
+export interface BlogPostSummary {
   blogTitle: string;
   sys: BlogSys;
   featureimage?: FeatureImage;
-  blogContent: string;
   blogExcerpt: string;
   urlSlug: string;
+}
+
+export interface BlogPost extends BlogPostSummary {
+  blogContent: string;
 }
 
 export interface ProjectSys {
   id: string;
 }
 
-export interface Project {
+export interface ProjectSummary {
   projectTitle: string;
   sys: ProjectSys;
   projectSlug: string;
   projectImage?: FeatureImage;
   projectExcerpt: string;
+}
+
+export interface Project extends ProjectSummary {
   projectDetails: string;
 }

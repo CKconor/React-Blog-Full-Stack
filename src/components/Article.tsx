@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import Markdown from '@/components/Markdown';
@@ -29,11 +30,16 @@ function Article({ backHref, backLabel, title, image, meta, content }: ArticlePr
       </Link>
 
       {image && (
-        <img
-          className="enter card w-full max-w-2xl h-72 object-cover mb-8"
-          src={image.url}
-          alt={image.title}
-        />
+        <div className="enter card relative overflow-hidden w-full max-w-2xl h-72 mb-8">
+          <Image
+            className="object-cover"
+            src={image.url}
+            alt={image.title}
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 672px"
+          />
+        </div>
       )}
 
       <h1 className="enter stagger-1 max-w-2xl">{title}</h1>
