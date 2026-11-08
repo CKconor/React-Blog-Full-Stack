@@ -1,5 +1,5 @@
 import { cache } from 'react';
-import { BlogPost, Project } from '../types';
+import { BlogPost, BlogPostSummary, Project, ProjectSummary } from '../types';
 
 const SPACE_ID = process.env.CONTENTFUL_SPACE_ID;
 const AUTH_KEY = process.env.CONTENTFUL_AUTH_KEY;
@@ -26,29 +26,29 @@ async function fetchContentful<T>(query: string, variables?: Record<string, stri
   return json.data as T;
 }
 
-const BLOG_FIELDS = `
+const BLOG_SUMMARY_FIELDS = `
   blogTitle
   sys { publishedAt id }
   featureimage { title url }
-  blogContent
   blogExcerpt
   urlSlug
 `;
+const BLOG_FIELDS = `${BLOG_SUMMARY_FIELDS} blogContent`;
 
-const PROJECT_FIELDS = `
+const PROJECT_SUMMARY_FIELDS = `
   projectTitle
   sys { id }
   projectSlug
   projectImage { title url }
   projectExcerpt
-  projectDetails
 `;
+const PROJECT_FIELDS = `${PROJECT_SUMMARY_FIELDS} projectDetails`;
 
-export async function getBlogs(): Promise<{ blogPostCollection: { items: BlogPost[] } }> {
+export async function getBlogs(): Promise<{ blogPostCollection: { items: BlogPostSummary[] } }> {
   return fetchContentful(`
     query Blogs {
-      blogPostCollection {
-        items { ${BLOG_FIELDS} }
+      blogPostCollection(order: sys_publishedAt_DESC) {
+        items { ${BLOG_SUMMARY_FIELDS} }
       }
     }
   `);
@@ -68,11 +68,11 @@ export const getBlogBySlug = cache(async (slug: string): Promise<BlogPost | null
   return data.blogPostCollection.items[0] ?? null;
 });
 
-export async function getProjects(): Promise<{ projectsCollection: { items: Project[] } }> {
+export async function getProjects(): Promise<{ projectsCollection: { items: ProjectSummary[] } }> {
   return fetchContentful(`
     query Projects {
       projectsCollection {
-        items { ${PROJECT_FIELDS} }
+        items { ${PROJECT_SUMMARY_FIELDS} }
       }
     }
   `);

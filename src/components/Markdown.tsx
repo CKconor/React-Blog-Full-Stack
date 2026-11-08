@@ -1,4 +1,3 @@
-'use client';
 import ReactMarkdown from 'react-markdown';
 import remarkEmoji from 'remark-emoji';
 import remarkFrontmatter from 'remark-frontmatter';
