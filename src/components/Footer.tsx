@@ -8,9 +8,9 @@ function Footer() {
   return (
     <footer className="hairline-t mt-8 pt-8">
       <div className="flex flex-col md:flex-row justify-between gap-8">
-        <div className="flex flex-col gap-1.5">
-          <span className="font-serif text-section">Conor Kemp</span>
-          <p className="text-ink-11 max-w-xs">
+        <div className="flex flex-col gap-1">
+          <span>Conor Kemp</span>
+          <p className="text-description text-ink-11 max-w-xs">
             Fullstack developer & UI designer based in the UK, building clean digital experiences.
           </p>
         </div>

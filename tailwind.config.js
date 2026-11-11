@@ -26,6 +26,7 @@ module.exports = {
       fontSize: {
         badge: textRole('badge'),
         body: textRole('body'),
+        description: textRole('description'),
         prose: textRole('prose'),
         title: textRole('title'),
         section: textRole('section'),

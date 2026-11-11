@@ -43,7 +43,7 @@ function Article({ backHref, backLabel, title, image, meta, content }: ArticlePr
       )}
 
       <h1 className="enter stagger-1 max-w-2xl">{title}</h1>
-      {meta && <div className="enter stagger-2 text-ink-11 mt-1.5">{meta}</div>}
+      {meta && <div className="enter stagger-2 text-description text-ink-11 mt-2">{meta}</div>}
 
       <div className="enter stagger-3 mt-8">
         <Markdown>{content}</Markdown>

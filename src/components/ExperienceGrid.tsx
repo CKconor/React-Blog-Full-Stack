@@ -4,18 +4,18 @@ import { roles, type Role } from '@/data/cv';
 function RoleBody({ role, linked }: { role: Role; linked: boolean }) {
   return (
     <>
-      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-1 md:gap-4 mb-3">
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-0.5 md:gap-4 mb-4">
         <div>
           <h3
             className={linked ? 'transition-colors duration-150 group-hover:text-accent-11' : undefined}
           >
             {role.company}
           </h3>
-          <span className="text-ink-11">{role.title}</span>
+          <p className="text-description text-ink-11 mt-0.5">{role.title}</p>
         </div>
-        <span className="text-ink-11 tabular-nums md:shrink-0">{role.period}</span>
+        <span className="text-description text-ink-11 tabular-nums md:shrink-0">{role.period}</span>
       </div>
-      <ul className="text-ink-11 max-w-2xl list-disc pl-5 space-y-1.5 mb-4 marker:text-accent-9">
+      <ul className="text-description text-ink-11 max-w-2xl list-disc pl-5 space-y-1.5 mb-4 marker:text-accent-9">
         {role.bullets.map((bullet) => (
           <li key={bullet}>{bullet}</li>
         ))}

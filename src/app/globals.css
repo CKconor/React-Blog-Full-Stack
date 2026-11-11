@@ -54,6 +54,7 @@
   --font-weight-ui: 500;
   --text-badge: 12px;   --leading-badge: 20px;
   --text-body: 13px;    --leading-body: 20px;
+  --text-description: 13px; --leading-description: 20px;
   --text-prose: 15px;   --leading-prose: 24px;
   --text-title: 16px;   --leading-title: 24px;
   --text-section: 20px; --leading-section: 28px;
@@ -73,6 +74,8 @@
     --badge-h: 22px;
     --text-badge: 14px;
     --text-body: 15px; --leading-body: 24px;
+    /* A description stays a step under its lead, which is 15px or more on a phone. */
+    --text-description: 14px; --leading-description: 20px;
   }
 }
 @media (pointer: coarse) {
@@ -140,8 +143,10 @@
     @apply font-serif text-display;
     letter-spacing: var(--tracking-display);
   }
+  /* The serif is the brand face: display titles and the monogram only. Below that size its
+     thin strokes read lighter than the sans, which turns the section-over-card order upside down. */
   h2 {
-    @apply font-serif text-section;
+    @apply text-section;
   }
   h3 {
     @apply text-title;
@@ -262,10 +267,16 @@
 
   /* Long-form text. Reading wants more room than the 13px control text. */
   .markdown {
-    @apply text-prose text-ink-12 max-w-2xl;
+    @apply text-prose text-ink-11 max-w-2xl;
   }
   .markdown > * + * {
     margin-top: 16px;
+  }
+  .markdown :is(h2, h3, strong) {
+    @apply text-ink-12;
+  }
+  .markdown :is(h2, h3) + * {
+    margin-top: 8px;
   }
   .markdown h2,
   .markdown h3 {

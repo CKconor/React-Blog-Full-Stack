@@ -21,7 +21,7 @@ export default function About() {
       <PageIntro title={profile.name} lead={profile.title} showPortrait />
 
       <Section title="Experience" stagger={3}>
-        <p className="max-w-xl text-ink-11">{summary}</p>
+        <p className="max-w-xl text-description text-ink-11">{summary}</p>
       </Section>
 
       <Section title="Work history" stagger={4}>
@@ -29,7 +29,7 @@ export default function About() {
       </Section>
 
       <Section title="Personal" stagger={5}>
-        <p className="max-w-xl text-ink-11">{interests}</p>
+        <p className="max-w-xl text-description text-ink-11">{interests}</p>
       </Section>
 
       <Section title="Links" stagger={6}>

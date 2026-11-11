@@ -28,8 +28,8 @@ function EntryCard({ href, title, excerpt, image, stagger }: EntryCardProps) {
         </div>
       )}
       <div className="p-4">
-        <h3 className="mb-1 transition-colors duration-150 group-hover:text-accent-11">{title}</h3>
-        <p className="text-ink-11 line-clamp-2">{excerpt}</p>
+        <h3 className="mb-0.5 transition-colors duration-150 group-hover:text-accent-11">{title}</h3>
+        <p className="text-description text-ink-11 line-clamp-2">{excerpt}</p>
       </div>
     </Link>
   );
